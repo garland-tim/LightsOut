@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Clinton
+ * @author Clint and Tim
  */
 public class LightsOut {
 
