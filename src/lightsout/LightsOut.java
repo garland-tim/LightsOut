@@ -27,6 +27,9 @@ public class LightsOut {
         myBoard.displayDefaults();
         Light myLight = new Light();
         myLight.displayDefaults();
+        
+        AskInput myInput = new AskInput();
+        myInput.askInput();
     }
     public void getName() {
         Scanner input = new Scanner(System.in);
