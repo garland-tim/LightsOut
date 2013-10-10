@@ -16,4 +16,5 @@ public class Light {
         System.out.println("On/Off: " + this.on);
         System.out.println("Symbol: " + this.symbol);
     }
+
 }

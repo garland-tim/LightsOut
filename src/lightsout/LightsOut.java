@@ -30,6 +30,8 @@ public class LightsOut {
         
         AskInput myInput = new AskInput();
         myInput.askInput();
+        
+        myBoard.makeBoard(5, 5);
     }
     public void getName() {
         Scanner input = new Scanner(System.in);

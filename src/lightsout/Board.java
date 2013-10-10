@@ -19,4 +19,19 @@ public class Board {
         System.out.println("Default Height: " + this.boardHeight);
         System.out.println("Default Width: " + this.boardWidth);
     }
+    
+    public void makeBoard(int height, int width){
+        for(int x = 0; x < boardWidth; x++)
+        {
+            System.out.println("\t" + topLabels[x] + "\t");
+        }
+        System.out.println("\n");
+        if(this.boardHeight > 0 && this.boardWidth > 0)
+        {
+            for (int y = 0; y <= this.boardWidth; y++)
+            {
+                System.out.println("---");
+            }
+        }
+    }
 }
