@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package javaapplication2;
-import java.util.Scanner;
 
 /**
  *
