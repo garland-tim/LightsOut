@@ -22,16 +22,13 @@ public class LightsOut {
         
         //For funsies
         Player myPlayer = new Player();
-        myPlayer.displayWins();
         Board myBoard = new Board();
-        myBoard.displayDefaults();
         Light myLight = new Light();
-        myLight.displayDefaults();
         
         AskInput myInput = new AskInput();
-        myInput.askInput();
         
-        myBoard.makeBoard(5, 5);
+        HelpMenuView myHelpMenu = new HelpMenuView();
+        myHelpMenu.display();
     }
     public void getName() {
         Scanner input = new Scanner(System.in);
