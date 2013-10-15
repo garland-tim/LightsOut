@@ -23,7 +23,7 @@ public class HelpMenuView {
     
     HelpMenuControl myMenuControl = new HelpMenuControl();
     
-    public string getInput(){
+    public String getInput(){
             String command = this.getCommand();
             switch (command) {
                 case "L":
