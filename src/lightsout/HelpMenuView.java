@@ -31,10 +31,19 @@ public class HelpMenuView {
                 case "L":
                     this.myMenuControl.displayLightHelp();
                     break;
+                case "B":
+                    this.myMenuControl.displayLightHelp();
+                    break;
+                case "R":
+                    this.myMenuControl.displayLightHelp();
+                    break;
+                case "P":
+                    this.myMenuControl.displayLightHelp();
+                    break;
                 case "Q":
                     return "QUIT";
             }
-            return "HELLO";
+            return "QUIT!";
     }
     
     public void display()
