@@ -24,14 +24,17 @@ public class HelpMenuView {
     HelpMenuControl myMenuControl = new HelpMenuControl();
     
     public String getInput(){
-            String command = this.getCommand();
-            switch (command) {
+        String helpInput;
+            Scanner input = new Scanner(System.in);
+            helpInput = input.next();
+            switch (helpInput) {
                 case "L":
                     this.myMenuControl.displayLightHelp();
                     break;
                 case "Q":
                     return "QUIT";
             }
+            return "HELLO";
     }
     
     public void display()
