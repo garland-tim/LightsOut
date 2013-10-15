@@ -23,7 +23,7 @@ public class HelpMenuView {
     
     HelpMenuControl myMenuControl = new HelpMenuControl();
     
-    public string getInput(){
+    public String getInput(){
             String command = this.getCommand();
             switch (command) {
                 case "L":
@@ -37,6 +37,7 @@ public class HelpMenuView {
     public void display()
     {
         System.out.println("=========== Help Menu ===========");
+        System.out.println("Please enter the letter for your choice:")
         for(int i = 0; i < HelpMenuView.menuItems.length; i++)
         {
             System.out.println("\t" + HelpMenuView.menuItems[i][0] + "\t" + HelpMenuView.menuItems[i][1]);
