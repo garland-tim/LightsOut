@@ -21,7 +21,9 @@ public class HelpMenuControl {
     }
     
     public void displayPlayerHelp(){
-        System.out.println("Th");
+        System.out.println("The player is you. Your goal is to have all of the lights on the board set to \n"
+                + "off in order to complete the puzzle. To see which lights are on and off please refer to \n"
+                + "the light help in the help menu.");
     }
     
     public void displayRulesHelp(){
