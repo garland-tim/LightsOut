@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 
 
-public class HelpMenuView {
+public class MainMenuView {
     
     private final static String[][] menuItems = {
     {"L", "The Light"},
@@ -21,7 +21,7 @@ public class HelpMenuView {
     {"Q", "Quit Help"}
 };
     
-    HelpMenuControl myMenuControl = new HelpMenuControl();
+    MainMenuControl myMainControl = new MainMenuControl();
     
     public int getInput(){
         int myReturn = 0;
@@ -31,22 +31,22 @@ public class HelpMenuView {
             helpInput = helpInput.toUpperCase();
             switch (helpInput) {
                 case "L":
-                    this.myMenuControl.displayLightHelp();
+                    this.myMainControl.displayLightHelp();
                     break;
                 case "B":
-                    this.myMenuControl.displayBoardHelp();
+                    this.myMainControl.displayBoardHelp();
                     break;
                 case "R":
-                    this.myMenuControl.displayRulesHelp();
+                    this.myMainControl.displayRulesHelp();
                     break;
                 case "P":
-                    this.myMenuControl.displayPlayerHelp();
+                    this.myMainControl.displayPlayerHelp();
                     break;
                 case "Q":
                     myReturn = 1;
                     break;
                 default:
-                    this.myMenuControl.errorMessage();
+                    this.myMainControl.errorMessage();
                     myReturn = -1;
             }
             return myReturn;
@@ -56,9 +56,9 @@ public class HelpMenuView {
     {
         System.out.println("=============== Help Menu ===============");
         System.out.println("Please enter the letter for your choice: ");
-        for(int i = 0; i < HelpMenuView.menuItems.length; i++)
+        for(int i = 0; i < MainMenuView.menuItems.length; i++)
         {
-            System.out.println("\t" + HelpMenuView.menuItems[i][0] + "\t" + HelpMenuView.menuItems[i][1]);
+            System.out.println("\t" + MainMenuView.menuItems[i][0] + "\t" + MainMenuView.menuItems[i][1]);
         }
         System.out.println("=========================================");
     }

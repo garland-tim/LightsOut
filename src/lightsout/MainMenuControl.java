@@ -8,7 +8,7 @@ package lightsout;
  *
  * @author Clinton
  */
-public class HelpMenuControl {
+public class MainMenuControl {
     public void displayLightHelp(){
         System.out.println("This is the light help");
     }

@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class LightsOut {
 
     String name;
-    String instructions = "Goal of the game: Turn off all the lights on the board!  Click on a space, and that space as well as the spaces above, to the left, right, and bottom of it will be inversed.  Continue to inverse the lights until all lights are turned off.";
+    String instructions = "Goal of the game: Turn off all the lights on the board!\nClick on a space, and that space as well as the spaces above, \nto the left, right, and bottom of it will be inversed.\nContinue to inverse the lights until all lights\nare turned off.\n\n";
     public static void main(String[] args) {
         // TODO code application logic here
         LightsOut myGame = new LightsOut();
@@ -33,7 +33,7 @@ public class LightsOut {
             myHelpMenu.display();
             theReturn = myHelpMenu.getInput();
            }
-        while (theReturn == 0);
+        while (theReturn != 1);
     }
     public void getName() {
         Scanner input = new Scanner(System.in);
