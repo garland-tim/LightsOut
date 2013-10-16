@@ -32,4 +32,8 @@ public class HelpMenuControl {
                 + "and horizontaly adjacent lights will also be switched. Once all of the lights have \n"
                 + "been set to off you have completed the puzzle.");
     }
+    
+    public void errorMessage(){
+        System.out.println("That is not a valid command.\nPlease try again.");
+    }
 }
