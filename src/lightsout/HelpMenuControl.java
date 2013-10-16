@@ -34,6 +34,6 @@ public class HelpMenuControl {
     }
     
     public void errorMessage(){
-        System.out.println("That is not a valid command.\nPlease try again.");
+        System.out.println("That is not a valid menu option. Please enter a vaild menu option.");
     }
 }
