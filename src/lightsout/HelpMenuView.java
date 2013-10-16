@@ -23,7 +23,8 @@ public class HelpMenuView {
     
     HelpMenuControl myMenuControl = new HelpMenuControl();
     
-    public String getInput(){
+    public int getInput(){
+        int myReturn = 0;
         String helpInput;
             Scanner input = new Scanner(System.in);
             helpInput = input.next();
@@ -41,9 +42,12 @@ public class HelpMenuView {
                     this.myMenuControl.displayPlayerHelp();
                     break;
                 case "Q":
-                    return "QUIT";
+                    myReturn = 1;
+                    break;
+                default:
+                    myReturn = 0;
             }
-            return "QUIT!";
+            return myReturn;
     }
     
     public void display()

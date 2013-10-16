@@ -28,7 +28,12 @@ public class LightsOut {
         AskInput myInput = new AskInput();
         
         HelpMenuView myHelpMenu = new HelpMenuView();
-        myHelpMenu.display();
+        int theReturn;
+        do {
+            myHelpMenu.display();
+            theReturn = myHelpMenu.getInput();
+           }
+        while (theReturn == 0);
     }
     public void getName() {
         Scanner input = new Scanner(System.in);
