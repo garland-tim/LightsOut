@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 
 
-public class MainMenuView {
+public class PreGameMenuView {
     
     private final static String[][] menuItems = {
     {"N", "The Light"},
@@ -21,7 +21,7 @@ public class MainMenuView {
     {"Q", "Quit Help"}
 };
     
-    MainMenuControl myMainControl = new MainMenuControl();
+    PreGameMenuControl myMainControl = new PreGameMenuControl();
     
     public int getInput(){
         int myReturn = 0;
@@ -56,9 +56,9 @@ public class MainMenuView {
     {
         System.out.println("=============== Help Menu ===============");
         System.out.println("Please enter the letter for your choice: ");
-        for(int i = 0; i < MainMenuView.menuItems.length; i++)
+        for(int i = 0; i < PreGameMenuView.menuItems.length; i++)
         {
-            System.out.println("\t" + MainMenuView.menuItems[i][0] + "\t" + MainMenuView.menuItems[i][1]);
+            System.out.println("\t" + PreGameMenuView.menuItems[i][0] + "\t" + PreGameMenuView.menuItems[i][1]);
         }
         System.out.println("=========================================");
     }
