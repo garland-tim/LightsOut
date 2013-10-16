@@ -32,13 +32,13 @@ public class HelpMenuView {
                     this.myMenuControl.displayLightHelp();
                     break;
                 case "B":
-                    this.myMenuControl.displayLightHelp();
+                    this.myMenuControl.displayBoardHelp();
                     break;
                 case "R":
-                    this.myMenuControl.displayLightHelp();
+                    this.myMenuControl.displayRulesHelp();
                     break;
                 case "P":
-                    this.myMenuControl.displayLightHelp();
+                    this.myMenuControl.displayPlayerHelp();
                     break;
                 case "Q":
                     return "QUIT";

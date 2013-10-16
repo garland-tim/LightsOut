@@ -13,4 +13,15 @@ public class HelpMenuControl {
         
     }
     
+    public void displayBoardHelp(){
+        
+    }
+    
+    public void displayPlayerHelp(){
+        
+    }
+    
+    public void displayRulesHelp(){
+        
+    }
 }
