@@ -15,7 +15,7 @@ public class Board {
     String[] topLabels = {"A","B","C","D","E","F","G","H","I"};
     String[] sideLables = {"1","2","3","4","5","6","7","8","9"};
     
-    public board(){
+    public Board(){
         this.newBoard();
     }
     
