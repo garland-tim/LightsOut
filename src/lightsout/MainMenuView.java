@@ -24,6 +24,15 @@ public class MainMenuView {
     
     MainMenuControl myMainControl = new MainMenuControl();
     
+    public MainMenuView(){
+        this.display();
+        int theReturn;
+        do {
+            theReturn = this.getInput();
+           }
+        while (theReturn != 1);
+    }
+    
     public int getInput(){
         int myReturn = 0;
         String mainInput;
@@ -47,6 +56,7 @@ public class MainMenuView {
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
+                    this.display();
                     break;
                 default:
                     this.myMainControl.errorMessage();
