@@ -9,23 +9,32 @@ package lightsout;
  * @author Clinton
  */
 public class MainMenuControl {
-    public void displayLightHelp(){
-        System.out.println("This is the light help");
+    public void quitGame(){
+        
     }
     
-    public void displayBoardHelp(){
-        System.out.println("This is the board help");
+    public void newGame(){
+        
     }
     
-    public void displayPlayerHelp(){
-        System.out.println("This is the player help");
+    public void showMoves(){
+        
     }
     
-    public void displayRulesHelp(){
-        System.out.println("This is the rule help");
+    public void displayMenu(){
+        
+    }
+    
+    public void displayHelp(){
+        HelpMenuView myHelpMenu = new HelpMenuView();
+        int theReturn;
+        do {
+            myHelpMenu.display();
+            theReturn = myHelpMenu.getInput();
+           }
+        while (theReturn != 1);
     }
     
     public void errorMessage(){
-        System.out.println("That is not a valid command.\nPlease try again.");
     }
 }

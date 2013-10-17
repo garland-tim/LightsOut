@@ -20,20 +20,11 @@ public class LightsOut {
         myGame.getName();
         myGame.displayHelp();
         
-        //For funsies
+        //Create a new player
         Player myPlayer = new Player();
-        Board myBoard = new Board();
-        Light myLight = new Light();
         
-        AskInput myInput = new AskInput();
+        PreGameMenuControl myPreGame = new PreGameMenuControl();
         
-        HelpMenuView myHelpMenu = new HelpMenuView();
-        int theReturn;
-        do {
-            myHelpMenu.display();
-            theReturn = myHelpMenu.getInput();
-           }
-        while (theReturn != 1);
     }
     public void getName() {
         Scanner input = new Scanner(System.in);

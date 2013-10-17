@@ -14,36 +14,39 @@ import java.util.Scanner;
 public class MainMenuView {
     
     private final static String[][] menuItems = {
-    {"N", "The Light"},
-    {"B", "The Board"},
-    {"R", "The Rules"},
-    {"P", "The Player"},
-    {"Q", "Quit Help"}
+    {"[column row]", "Push Light"},
+    {"Q", "Quit the Game"},
+    {"N", "New Game"},
+    {"M", "Show number of moves"},
+    {"D", "Display this menu"},
+    {"H", "Help"}
 };
     
     MainMenuControl myMainControl = new MainMenuControl();
     
     public int getInput(){
         int myReturn = 0;
-        String helpInput;
+        String mainInput;
             Scanner input = new Scanner(System.in);
-            helpInput = input.next();
-            helpInput = helpInput.toUpperCase();
-            switch (helpInput) {
-                case "L":
-                    this.myMainControl.displayLightHelp();
-                    break;
-                case "B":
-                    this.myMainControl.displayBoardHelp();
-                    break;
-                case "R":
-                    this.myMainControl.displayRulesHelp();
-                    break;
-                case "P":
-                    this.myMainControl.displayPlayerHelp();
-                    break;
+            mainInput = input.next();
+            mainInput = mainInput.toUpperCase();
+            switch (mainInput) {
                 case "Q":
+                    this.myMainControl.quitGame();
                     myReturn = 1;
+                    break;
+                case "N":
+                    this.myMainControl.newGame();
+                    myReturn = 1;
+                    break;
+                case "M":
+                    this.myMainControl.showMoves();
+                    break;
+                case "D":
+                    this.myMainControl.displayMenu();
+                    break;
+                case "H":
+                    this.myMainControl.displayHelp();
                     break;
                 default:
                     this.myMainControl.errorMessage();
@@ -54,8 +57,7 @@ public class MainMenuView {
     
     public void display()
     {
-        System.out.println("=============== Help Menu ===============");
-        System.out.println("Please enter the letter for your choice: ");
+        System.out.println("=============== Main Menu ===============");
         for(int i = 0; i < MainMenuView.menuItems.length; i++)
         {
             System.out.println("\t" + MainMenuView.menuItems[i][0] + "\t" + MainMenuView.menuItems[i][1]);
