@@ -39,6 +39,7 @@ public class PreGameMenuView {
                     break;
                 default:
                     this.myMainControl.errorMessage();
+                    this.getInput();
                     myReturn = -1;
             }
             return myReturn;
