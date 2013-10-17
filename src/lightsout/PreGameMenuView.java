@@ -21,6 +21,11 @@ public class PreGameMenuView {
     
     PreGameMenuControl myMainControl = new PreGameMenuControl();
     
+    public PreGameMenuView(){
+        this.display();
+        this.getInput();
+    }
+    
     public int getInput(){
         int myReturn = 0;
         String helpInput;
@@ -30,6 +35,7 @@ public class PreGameMenuView {
             switch (helpInput) {
                 case "N":
                     Board myBoard = new Board();
+                    MainMenuView myMainMenu = new MainMenuView();
                     break;
                 case "H":
                     this.myMainControl.displayHowTo();

@@ -10,29 +10,38 @@ package lightsout;
  */
 
 public class Board {
-    int boardHeight = 8;
-    int boardWidth = 8;
+    int boardHeight = 5;
+    int boardWidth = 5;
     String[] topLabels = {"A","B","C","D","E","F","G","H","I"};
     String[] sideLables = {"1","2","3","4","5","6","7","8","9"};
     
     public Board(){
-        this.newBoard();
+        this.displayBoard();
     }
     
-    public void newBoard(){
+    public void displayBoard(){
         //Top Row
         for(int h=0; h < this.boardHeight; h++)
         {
+            String boardLines = "=";
             for(int w=0; w < this.boardWidth; w++)
             {
-                System.out.println("===");
+                boardLines += "===";
             }
-            System.out.println("  =");
+            System.out.println(boardLines);
+            boardLines = "|";
             for(int w=0; w < this.boardWidth; w++)
             {
-                System.out.println("===");
+                boardLines += "  |";
             }
+            System.out.println(boardLines);
         }
+        String boardLines = "=";
+        for(int w=0; w < this.boardWidth; w++)
+          {
+              boardLines += "===";
+          }
+        System.out.println(boardLines);
     }
     
     public void displayDefaults() {
