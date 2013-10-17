@@ -7,18 +7,16 @@ package lightsout;
 import java.util.Scanner;
 /**
  *
- * @author Clinton
+ * @author Tim
  */
 
 
 public class PreGameMenuView {
     
     private final static String[][] menuItems = {
-    {"N", "The Light"},
-    {"B", "The Board"},
-    {"R", "The Rules"},
-    {"P", "The Player"},
-    {"Q", "Quit Help"}
+    {"N", "New Game"},
+    {"H", "How to Play"},
+    {"Q", "Quit"}
 };
     
     PreGameMenuControl myMainControl = new PreGameMenuControl();
@@ -30,17 +28,11 @@ public class PreGameMenuView {
             helpInput = input.next();
             helpInput = helpInput.toUpperCase();
             switch (helpInput) {
-                case "L":
-                    this.myMainControl.displayLightHelp();
+                case "N":
+                    Board myBoard = new Board();
                     break;
-                case "B":
-                    this.myMainControl.displayBoardHelp();
-                    break;
-                case "R":
-                    this.myMainControl.displayRulesHelp();
-                    break;
-                case "P":
-                    this.myMainControl.displayPlayerHelp();
+                case "H":
+                    this.myMainControl.displayHowTo();
                     break;
                 case "Q":
                     myReturn = 1;
