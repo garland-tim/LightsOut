@@ -33,6 +33,7 @@ public class PreGameMenuView {
                     break;
                 case "H":
                     this.myMainControl.displayHowTo();
+                    this.getInput();
                     break;
                 case "Q":
                     myReturn = 1;
