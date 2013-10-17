@@ -6,25 +6,15 @@ package lightsout;
 
 /**
  *
- * @author Clinton
+ * @author Tim
  */
 public class PreGameMenuControl {
-    public void displayLightHelp(){
-        System.out.println("This is the light help");
+    public void displayHowTo(){
+        System.out.println("Only one light may be selected at a time. Once the light has been selected \n"
+                + "it will turn the light you selected either on or off and the corresponding verticaly \n"
+                + "and horizontaly adjacent lights will also be switched. Once all of the lights have \n"
+                + "been set to off you have completed the puzzle.");
     }
-    
-    public void displayBoardHelp(){
-        System.out.println("This is the board help");
-    }
-    
-    public void displayPlayerHelp(){
-        System.out.println("This is the player help");
-    }
-    
-    public void displayRulesHelp(){
-        System.out.println("This is the rule help");
-    }
-    
     public void errorMessage(){
         System.out.println("That is not a valid command.\nPlease try again.");
     }
