@@ -10,19 +10,19 @@ package lightsout;
  */
 public class MainMenuControl {
     public void quitGame(){
-        
+        System.out.println("Thanks for playing!");
     }
     
     public void newGame(){
-        
+        System.out.println("New Game function not created quite yet...");
     }
     
     public void showMoves(){
-        
+        System.out.println("Show Moves function not created quite yet...");
     }
     
     public void displayMenu(){
-        
+        System.out.println("This display menu should be functional soon... function not created quite yet...");
     }
     
     public void displayHelp(){
@@ -36,5 +36,6 @@ public class MainMenuControl {
     }
     
     public void errorMessage(){
+        System.out.println("Somethings fishy here....");
     }
 }
