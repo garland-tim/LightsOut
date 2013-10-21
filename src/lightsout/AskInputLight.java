@@ -10,14 +10,12 @@ import java.util.Scanner;
  *
  * @author Tim
  */
-public class AskInput {
-    String column;
-    String row;
+public class AskInputLight {
+    String address;
     
-    public void askInput() {
+    public void getInput() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please Enter the square you would like to change: ");
-        this.column = input.next();
-        this.row = input.next();
+        System.out.println("Please enter the light you would like to change: ");
+        this.address = input.next();
     }
 }

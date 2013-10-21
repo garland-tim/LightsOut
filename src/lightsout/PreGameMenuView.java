@@ -34,7 +34,6 @@ public class PreGameMenuView {
             helpInput = helpInput.toUpperCase();
             switch (helpInput) {
                 case "N":
-                    Board myBoard = new Board();
                     MainMenuView myMainMenu = new MainMenuView();
                     break;
                 case "H":
@@ -54,7 +53,7 @@ public class PreGameMenuView {
     
     public void display()
     {
-        System.out.println("=============== Help Menu ===============");
+        System.out.println("============= PreGame Menu =============");
         System.out.println("Please enter the letter for your choice: ");
         for(int i = 0; i < PreGameMenuView.menuItems.length; i++)
         {

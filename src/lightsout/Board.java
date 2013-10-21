@@ -12,11 +12,10 @@ package lightsout;
 public class Board {
     int boardHeight = 5;
     int boardWidth = 5;
-    String[] topLabels = {"A","B","C","D","E","F","G","H","I"};
-    String[] sideLables = {"1","2","3","4","5","6","7","8","9"};
+    String[] topLabels = {"A","B","C","D","E"};
+    String[] sideLables = {"1","2","3","4","5"};
     
     public Board(){
-        this.displayBoard();
     }
     
     public void displayBoard(){
