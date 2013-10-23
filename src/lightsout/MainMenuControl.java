@@ -13,6 +13,10 @@ public class MainMenuControl {
         System.out.println("Thanks for playing!");
     }
     
+    public void changeLight(){
+        AskInputLight myAsk = new AskInputLight();
+    }
+    
     public void newGame(){
         System.out.println("New Game function not created quite yet...");
     }

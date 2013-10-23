@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class MainMenuView {
     
     private final static String[][] menuItems = {
-    {"[column row]", "Push Light"},
+    {"C", "Change Light"},
     {"Q", "Quit the Game"},
     {"N", "New Game"},
     {"M", "Show number of moves"},
@@ -55,6 +55,9 @@ public class MainMenuView {
                     break;
                 case "D":
                     this.myMainControl.displayMenu();
+                    break;
+                case "C":
+                    this.myMainControl.changeLight();
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
