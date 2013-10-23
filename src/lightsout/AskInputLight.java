@@ -12,9 +12,10 @@ import java.util.Scanner;
  */
 public class AskInputLight {
     String address;
+    Integer ask = 0;
     
     public void getInput() {
-        while (input == 0) {
+        while (ask == 0) {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the light you would like to change: ");
         this.address = input.next();
@@ -26,7 +27,7 @@ public class AskInputLight {
             System.out.println("Please enter a valid column option.");
         else
             
-            input = 1;
+            ask = 1;
     }
     }
     
