@@ -9,21 +9,21 @@ package lightsout;
  * @author Clinton
  */
 public class MainMenuControl {
-    Board board;
+    Board myBoard;
     public void quitGame(){
         System.out.println("Thanks for playing!");
     }
     
-    public MainMenuControl(Board board){
-        this.board = board;
+    public MainMenuControl(){
     }
     
     public void changeLight(){
-        AskInputLight myAsk = new AskInputLight(this.board);
+        AskInputLight myAsk = new AskInputLight(this.myBoard);
     }
     
     public void newGame(){
-        System.out.println("New Game function not created quite yet...");
+        Board myBoard = new Board();
+        myBoard.displayBoard();
     }
     
     public void showMoves(){

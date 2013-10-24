@@ -23,7 +23,7 @@ public class LightsOut {
         //Create a new player
         Player myPlayer = new Player();
         
-        PreGameMenuView myPreGame = new PreGameMenuView();       
+        MainMenuView myMainMenu = new MainMenuView();      
     }
     public void getName() {
         Scanner input = new Scanner(System.in);

@@ -35,7 +35,7 @@ public class Board {
     public void createBoard(){
         int numOfLightsThisRow;
         int randInArray;
-        int maxLightsInRow = 2;
+        int maxLightsInRow = 3;
         for(int h=0; h < this.boardArray.length; h++)
         {
             //Max is set at 2 currently...

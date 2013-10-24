@@ -21,12 +21,10 @@ public class MainMenuView {
     {"D", "Display this menu"},
     {"H", "Help"}
 };
-    Board myBoard = new Board();
-    MainMenuControl myMainControl = new MainMenuControl(myBoard);
+    MainMenuControl myMainControl = new MainMenuControl();
     
     public MainMenuView(){
         this.display();
-        myBoard.displayBoard();
         int theReturn;
         do {
             theReturn = this.getInput();
@@ -47,7 +45,6 @@ public class MainMenuView {
                     break;
                 case "N":
                     this.myMainControl.newGame();
-                    myReturn = 1;
                     break;
                 case "M":
                     this.myMainControl.showMoves();
