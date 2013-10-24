@@ -9,12 +9,17 @@ package lightsout;
  * @author Clinton
  */
 public class MainMenuControl {
+    Board board;
     public void quitGame(){
         System.out.println("Thanks for playing!");
     }
     
+    public MainMenuControl(Board board){
+        this.board = board;
+    }
+    
     public void changeLight(){
-        AskInputLight myAsk = new AskInputLight();
+        AskInputLight myAsk = new AskInputLight(this.board);
     }
     
     public void newGame(){

@@ -13,9 +13,11 @@ import java.util.Scanner;
 public class AskInputLight {
     String address;
     Integer ask = 0;
+    Board board;
     
-    public AskInputLight(){
+    public AskInputLight(Board board1){
         this.getInput();
+        this.board = board1;
     }
     
     public void getInput() {
@@ -25,15 +27,16 @@ public class AskInputLight {
         this.address = input.next();
         
         String[] location = this.address.split("");
-        String column = location[0].toUpperCase();
-        String row = location[1];
-        if(!"A".equals(column) || !"B".equals(column) || !"C".equals(column) || !"D".equals(column) || !"E".equals(column))
+        String column = location[1].toUpperCase();
+        String row = location[2];
+        //Is column A-E?
+        if(!column.equals("A") && !column.equals("B") && !column.equals("C") && !column.equals("D") && !column.equals("E"))
         {
             System.out.println("Please enter a valid column option.");
         }
         //Column is valid
         else{
-            if(!"1".equals(row) || !"2".equals(row) || !"3".equals(row) || !"4".equals(row) || !"5".equals(row))
+            if(!"1".equals(row) && !"2".equals(row) && !"3".equals(row) && !"4".equals(row) && !"5".equals(row))
             {
                 System.out.println("Please enter a valid row option.");
             }
@@ -52,7 +55,16 @@ public class AskInputLight {
         int columnInt = convertColToInt(column);
         int rowInt = convertRowToInt(row);
         
-        System.out.println("You have selected in the array ["+columnInt+","+rowInt+"].");
+        /*
+        System.out.println(""+this.board.boardArray[column][row]);
+        if(this.board.boardArray[column][row] == 1)
+        {
+            this.board.boardArray[column][row] = 0;
+        }
+        else{
+            this.board.boardArray[column][row] = 1;
+        }
+        */
     }
     
     public int convertColToInt(String column){

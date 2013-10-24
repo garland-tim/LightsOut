@@ -21,11 +21,10 @@ public class MainMenuView {
     {"D", "Display this menu"},
     {"H", "Help"}
 };
-    
-    MainMenuControl myMainControl = new MainMenuControl();
+    Board myBoard = new Board();
+    MainMenuControl myMainControl = new MainMenuControl(myBoard);
     
     public MainMenuView(){
-        Board myBoard = new Board();
         this.display();
         myBoard.displayBoard();
         int theReturn;
