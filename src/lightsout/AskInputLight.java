@@ -43,29 +43,28 @@ public class AskInputLight {
             //Row is Valid
             else
             {
-                changeLight(column, row);
+                //Convert "A5" style to "[0,4]" style
+                int columnInt = convertColToInt(column);
+                int rowInt = convertRowToInt(row);
+                
+                //Change that light!
+                changeLight(columnInt, rowInt);
+                
+                //This was a valid option, so you can close this method
                 ask = 1;
             }
            }
         }
     }
     
-    public void changeLight(String column, String row){
-        int state;
-        int columnInt = convertColToInt(column);
-        int rowInt = convertRowToInt(row);
-        
-        //this.board.displayBoard();
-        //System.out.println(this.board.boardArray[columnInt][rowInt]);
-        /*
-        if(this.board.boardArray[column][row] == 1)
+    public void changeLight(int columnInt, int rowInt){
+        if(this.board.boardArray[rowInt][columnInt] == 1)
         {
-            this.board.boardArray[column][row] = 0;
+            this.board.boardArray[rowInt][columnInt] = 0;
         }
         else{
-            this.board.boardArray[column][row] = 1;
+            this.board.boardArray[rowInt][columnInt] = 1;
         }
-        */
     }
     
     public int convertColToInt(String column){

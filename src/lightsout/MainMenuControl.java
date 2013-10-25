@@ -22,12 +22,15 @@ public class MainMenuControl {
     }
     
     public void newGame(){
-        Board myBoard = new Board();
-        myBoard.displayBoard();
+        this.myBoard = new Board();
     }
     
     public void showMoves(){
         System.out.println("Show Moves function not created quite yet...");
+    }
+    
+    public void displayBoard(){
+        this.myBoard.displayBoard();
     }
     
     public void displayMenu(){

@@ -63,6 +63,7 @@ public class MainMenuView {
                     this.myMainControl.errorMessage();
                     myReturn = -1;
             }
+            myMainControl.displayBoard();
             return myReturn;
     }
     
