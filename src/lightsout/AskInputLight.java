@@ -17,7 +17,6 @@ public class AskInputLight {
     
     public AskInputLight(Board board1){
         this.board = board1;
-        
         this.getInput();
     }
     
@@ -56,8 +55,8 @@ public class AskInputLight {
         int columnInt = convertColToInt(column);
         int rowInt = convertRowToInt(row);
         
-        
-        //System.out.println(this.board.boardArray[column][row]);
+        //this.board.displayBoard();
+        //System.out.println(this.board.boardArray[columnInt][rowInt]);
         /*
         if(this.board.boardArray[column][row] == 1)
         {

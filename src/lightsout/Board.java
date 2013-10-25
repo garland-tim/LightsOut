@@ -38,7 +38,7 @@ public class Board {
         int maxLightsInRow = 3;
         for(int h=0; h < this.boardArray.length; h++)
         {
-            //Max is set at 2 currently...
+            //Max is set at 3 currently...
             numOfLightsThisRow = randInt(0, maxLightsInRow);
             for(int i=0; i < numOfLightsThisRow; i++)
             {
