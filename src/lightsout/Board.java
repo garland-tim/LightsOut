@@ -101,4 +101,19 @@ public class Board {
           }
         System.out.println(boardLines);
     }
+    
+    public void checkBoard() {
+        int count = 0;
+        
+        for(row = 0, row < 5, row ++){
+            for(column = 0, coulmn < 5 column++){
+                if(this.boardArray[row][column] == 1)
+                        count++;
+            }
+            if(count > 0)
+                    System.out.println("The game isn't over yet!");
+            else
+                System.out.println("Congratulations! YOU WON!");
+        }
+    }
 }
