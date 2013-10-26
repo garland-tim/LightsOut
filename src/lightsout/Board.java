@@ -105,8 +105,8 @@ public class Board {
     public void checkBoard() {
         int count = 0;
         
-        for(row = 0, row < 5, row ++){
-            for(column = 0, coulmn < 5 column++){
+        for(int row = 0; row < 5; row ++){
+            for(int column = 0; column < 5; column++){
                 if(this.boardArray[row][column] == 1)
                         count++;
             }
