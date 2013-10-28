@@ -50,4 +50,43 @@ public class MainMenuControl {
     public void errorMessage(){
         System.out.println("Somethings fishy here....");
     }
+    public void arraySample()
+    {
+             String[ ][ ] names = {
+                 {"joe", "slim", "ed", "george"},
+                 {"Tim", "Grant", "Clint"},
+                 {"Bush", "Clinton", "Boma"}
+             };
+             for(int i = 0; i < names.length; i++)
+             {
+                sortStringBubble(names[i]);
+                System.out.println("Row "+i+" (sorted): ");
+                for(int k = 0; k < names[i].length; k++)
+                {
+                    System.out.println("\t"+names[i][k]);
+                }
+             }
+    }
+    
+     public static void sortStringBubble( String  x [ ] )
+      {
+            int j;
+            boolean flag = true;  // will determine when the sort is finished
+            String temp;
+
+            while ( flag )
+            {
+                  flag = false;
+                  for ( j = 0;  j < x.length - 1;  j++ )
+                  {
+                          if ( x [ j ].compareToIgnoreCase( x [ j+1 ] ) > 0 )
+                          {                                             // ascending sort
+                                      temp = x [ j ];
+                                      x [ j ] = x [ j+1];     // swapping
+                                      x [ j+1] = temp; 
+                                      flag = true;
+                           } 
+                   } 
+            } 
+      } 
 }

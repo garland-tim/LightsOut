@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class MainMenuView {
     
     private final static String[][] menuItems = {
+    {"S", "See array sort"},
     {"C", "Change Light"},
     {"Q", "Quit the Game"},
     {"N", "New Game"},
@@ -54,6 +55,9 @@ public class MainMenuView {
                     break;
                 case "C":
                     this.myMainControl.changeLight();
+                    break;
+                case "S":
+                    this.myMainControl.arraySample();
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
