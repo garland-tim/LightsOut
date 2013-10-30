@@ -90,7 +90,7 @@ public class Board {
                     boardLines += " " + this.offSymbol + " |";
                 }
             }
-            System.out.println(boardLines);
+            System.out.println(boardLines); 
         }
         
         //Bottom =========

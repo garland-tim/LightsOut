@@ -26,6 +26,8 @@ public class MainMenuView {
     
     public MainMenuView(){
         this.display();
+        myMainControl.newGame();
+        myMainControl.displayBoard();
         int theReturn;
         do {
             theReturn = this.getInput();

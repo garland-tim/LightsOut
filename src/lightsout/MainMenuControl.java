@@ -55,8 +55,9 @@ public class MainMenuControl {
              String[ ][ ] names = {
                  {"joe", "slim", "ed", "george"},
                  {"Tim", "Grant", "Clint"},
-                 {"Bush", "Clinton", "Boma"}
+                 {"Bush", "Clinton", "Boma", "Adams"}
              };
+             System.out.println(names.length);
              for(int i = 0; i < names.length; i++)
              {
                 sortStringBubble(names[i]);
