@@ -25,8 +25,8 @@ public class MainMenuControl {
         this.myBoard = new Board();
     }
     
-    public void showMoves(){
-        System.out.println("Show Moves function not created quite yet...");
+    public void showLightsOn(){
+        this.myBoard.checkBoard();
     }
     
     public void displayBoard(){
@@ -57,7 +57,6 @@ public class MainMenuControl {
                  {"Tim", "Grant", "Clint"},
                  {"Bush", "Clinton", "Boma", "Adams"}
              };
-             System.out.println(names.length);
              for(int i = 0; i < names.length; i++)
              {
                 sortStringBubble(names[i]);
@@ -90,4 +89,12 @@ public class MainMenuControl {
                    } 
             } 
       } 
+
+
+    public void Tim(){
+        
+    }
+    public void Goodman(){
+        
+    }
 }

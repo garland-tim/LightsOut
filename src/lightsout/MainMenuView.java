@@ -15,11 +15,13 @@ public class MainMenuView {
     
     private final static String[][] menuItems = {
     {"S", "See array sort"},
+    {"T", "Tim's Lesson 6"},
+    {"G", "Goodman's Lesson 6"},
     {"C", "Change Light"},
     {"Q", "Quit the Game"},
     {"N", "New Game"},
-    {"M", "Show number of moves"},
-    {"D", "Display this menu"},
+    {"L", "Show number of Lights left"},
+    {"M", "Display Menu"},
     {"H", "Help"}
 };
     MainMenuControl myMainControl = new MainMenuControl();
@@ -48,15 +50,23 @@ public class MainMenuView {
                     break;
                 case "N":
                     this.myMainControl.newGame();
+                    myMainControl.displayBoard();
                     break;
                 case "M":
-                    this.myMainControl.showMoves();
-                    break;
-                case "D":
                     this.myMainControl.displayMenu();
+                    break;
+                case "L":
+                    this.myMainControl.showLightsOn();
+                    break;
+                case "T":
+                    this.myMainControl.Tim();
+                    break;
+                case "G":
+                    this.myMainControl.Goodman();
                     break;
                 case "C":
                     this.myMainControl.changeLight();
+                    myMainControl.displayBoard();
                     break;
                 case "S":
                     this.myMainControl.arraySample();
@@ -64,12 +74,12 @@ public class MainMenuView {
                 case "H":
                     this.myMainControl.displayHelp();
                     this.display();
+                    myMainControl.displayBoard();
                     break;
                 default:
                     this.myMainControl.errorMessage();
                     myReturn = -1;
             }
-            myMainControl.displayBoard();
             return myReturn;
     }
     

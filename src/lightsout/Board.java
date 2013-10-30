@@ -110,10 +110,10 @@ public class Board {
                 if(this.boardArray[row][column] == 1)
                         count++;
             }
-            if(count > 0)
-                    System.out.println("The game isn't over yet!");
-            else
-                System.out.println("Congratulations! YOU WON!");
         }
+        if(count > 0)
+            System.out.println("The game isn't over yet!  You have "+ count + " spaces left");
+        else
+            System.out.println("Congratulations! YOU WON!");
     }
 }
