@@ -92,7 +92,12 @@ public class MainMenuControl {
 
 
     public void Tim(){
-        
+        int[] numbers = {2, 5, 9, 11, 3, 6, 21, 2};
+        int sum = 0;
+        for(int i : numbers) {
+            sum += i;
+        }
+        System.out.println("The average of the numbers is: " + sum / numbers.length);
     }
     public void Goodman(){
         
