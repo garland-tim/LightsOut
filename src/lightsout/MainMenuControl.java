@@ -100,6 +100,12 @@ public class MainMenuControl {
         System.out.println("The average of the numbers is: " + sum / numbers.length);
     }
     public void Goodman(){
-        
+        int[] sample_array = {-4, 2, 99, 41, 15, 62, 33, 109, -17, 8};
+        int min = sample_array[0];
+        for(int i : sample_array){
+            if (i < min)
+                min = i;
+        }
+        System.out.println("The lowest (min) number in array: " + min);
     }
 }
