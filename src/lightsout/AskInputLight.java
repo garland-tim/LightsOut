@@ -50,6 +50,32 @@ public class AskInputLight {
                 //Change that light!
                 changeLight(columnInt, rowInt);
                 
+                //Get neighbors
+                int lightAbove;
+                int lightBelow;
+                int lightRight;
+                int lightLeft;
+                if(columnInt > 0)
+                {
+                    lightLeft = columnInt - 1;
+                    changeLight(lightLeft, rowInt);
+                }
+                if(columnInt < 4)
+                {
+                    lightRight = columnInt + 1;
+                    changeLight(lightRight, rowInt);
+                }
+                if(rowInt > 0)
+                {
+                    lightAbove = rowInt - 1;
+                    changeLight(columnInt, lightAbove);
+                }
+                if(rowInt < 4)
+                {
+                    lightBelow = rowInt + 1;
+                    changeLight(columnInt, lightBelow);
+                }
+                                
                 //This was a valid option, so you can close this method
                 ask = 1;
             }
