@@ -102,7 +102,7 @@ public class Board {
         System.out.println(boardLines);
     }
     
-    public void checkBoard() {
+    public int checkBoard() {
         int count = 0;
         
         for(int row = 0; row < 5; row ++){
@@ -111,9 +111,6 @@ public class Board {
                         count++;
             }
         }
-        if(count > 0)
-            System.out.println("The game isn't over yet!  You have "+ count + " spaces left");
-        else
-            System.out.println("Congratulations! YOU WON!");
+        return count;
     }
 }

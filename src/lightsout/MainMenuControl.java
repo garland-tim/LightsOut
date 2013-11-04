@@ -19,6 +19,8 @@ public class MainMenuControl {
     
     public void changeLight(){
         AskInputLight myAsk = new AskInputLight(this.myBoard);
+        if (this.myBoard.checkBoard() == 0)
+            System.out.println("You just done won the game!  Press m for Main Menu!");
     }
     
     public void newGame(){
@@ -26,11 +28,22 @@ public class MainMenuControl {
     }
     
     public void showLightsOn(){
-        this.myBoard.checkBoard();
+        int lightsLeft = this.myBoard.checkBoard();
+        if(lightsLeft == 0)
+        {
+            System.out.println("You have won the game!");
+        }
+        else
+        {
+            System.out.println("You still have " + lightsLeft + " spaces left");
+        }
     }
     
     public void displayBoard(){
         this.myBoard.displayBoard();
+    }
+    
+    public void easterEgg(){
     }
     
     public void displayMenu(){
@@ -48,7 +61,7 @@ public class MainMenuControl {
     }
     
     public void errorMessage(){
-        System.out.println("Somethings fishy here....");
+        System.out.println("Somethings fishy here.... invalid command");
     }
     public void arraySample()
     {

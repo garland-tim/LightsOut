@@ -22,6 +22,7 @@ public class MainMenuView {
     {"N", "New Game"},
     {"L", "Show number of Lights left"},
     {"M", "Display Menu"},
+    {"B", "Display Board"},
     {"H", "Help"}
 };
     MainMenuControl myMainControl = new MainMenuControl();
@@ -53,7 +54,10 @@ public class MainMenuView {
                     myMainControl.displayBoard();
                     break;
                 case "M":
-                    this.myMainControl.displayMenu();
+                    this.display();
+                    break;
+                case "B":
+                    myMainControl.displayBoard();
                     break;
                 case "L":
                     this.myMainControl.showLightsOn();
@@ -70,6 +74,9 @@ public class MainMenuView {
                     break;
                 case "S":
                     this.myMainControl.arraySample();
+                    break;
+                case "E":
+                    this.myMainControl.easterEgg();
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
