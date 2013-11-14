@@ -4,15 +4,20 @@
  */
 package lightsout;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Tim
  */
 public class Player {
-    String name;
-    int wins = 0;
+    private String name;
     
-    public void displayWins() {
-        System.out.println("Wins: " + this.wins);
+    public void askName() {
+        AskInput myAsk = new AskInput();
+        this.name = myAsk.askName();
+    }
+    public void printName(){
+        System.out.println("\nWelcome " + this.name + "\n");
     }
 }

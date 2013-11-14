@@ -10,6 +10,7 @@ package lightsout;
  */
 public class MainMenuControl {
     Board myBoard;
+    
     public void quitGame(){
         System.out.println("Thanks for playing!");
     }
@@ -18,9 +19,47 @@ public class MainMenuControl {
     }
     
     public void changeLight(){
-        AskInputLight myAsk = new AskInputLight(this.myBoard);
-        if (this.myBoard.checkBoard() == 0)
+        //Get input
+        AskInput myAsk = new AskInput(this.myBoard);
+        int[] location = myAsk.getLocation();
+        int columnInt = location[0];
+        int rowInt = location[1];
+        
+        //Change that light!
+        Light light = new Light(this.myBoard);
+        light.changeLight(columnInt, rowInt);
+                
+        //Get neighbors and change them
+        int lightAbove;
+        int lightBelow;
+        int lightRight;
+        int lightLeft;
+        if(columnInt > 0)
+          {
+              lightLeft = columnInt - 1;
+              light.changeLight(lightLeft, rowInt);
+          }
+        if(columnInt < 4)
+          {
+              lightRight = columnInt + 1;
+              light.changeLight(lightRight, rowInt);
+          }
+        if(rowInt > 0)
+          {
+              lightAbove = rowInt - 1;
+              light.changeLight(columnInt, lightAbove);
+          }
+        if(rowInt < 4)
+          {
+              lightBelow = rowInt + 1;
+              light.changeLight(columnInt, lightBelow);
+          }
+                               
+        
+        //Check to see if game is done
+        if (this.myBoard.checkBoard() == 0){
             System.out.println("You just done won the game!  Press m for Main Menu!");
+        }
     }
     
     public void newGame(){
@@ -30,32 +69,21 @@ public class MainMenuControl {
     public void showLightsOn(){
         int lightsLeft = this.myBoard.checkBoard();
         if(lightsLeft == 0)
-        {
             System.out.println("You have won the game!");
-        }
         else
-        {
             System.out.println("You still have " + lightsLeft + " spaces left");
-        }
     }
     
     public void displayBoard(){
         this.myBoard.displayBoard();
     }
     
-    public void easterEgg(){
-    }
-    
-    public void displayMenu(){
-        System.out.println("This display menu should be functional soon... function not created quite yet...");
-    }
-    
     public void displayHelp(){
         HelpMenuView myHelpMenu = new HelpMenuView();
         int theReturn;
         do {
-            myHelpMenu.display();
-            theReturn = myHelpMenu.getInput();
+            myHelpMenu.displayHelpMenu();
+            theReturn = myHelpMenu.processMenuInput();
            }
         while (theReturn != 1);
     }
@@ -63,6 +91,7 @@ public class MainMenuControl {
     public void errorMessage(){
         System.out.println("Somethings fishy here.... invalid command");
     }
+    
     public void arraySample()
     {
              String[ ][ ] names = {

@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 
 public class MainMenuView {
-    
     private final static String[][] menuItems = {
     {"S", "See array sort"},
     {"T", "Tim's Lesson 6"},
@@ -25,26 +24,25 @@ public class MainMenuView {
     {"B", "Display Board"},
     {"H", "Help"}
 };
+    
     MainMenuControl myMainControl = new MainMenuControl();
     
     public MainMenuView(){
-        this.display();
+        this.displayMainMenu();
         myMainControl.newGame();
         myMainControl.displayBoard();
         int theReturn;
         do {
-            theReturn = this.getInput();
+            theReturn = this.runMenu();
            }
         while (theReturn != 1);
     }
     
-    public int getInput(){
+    public int runMenu(){
         int myReturn = 0;
-        String mainInput;
-            Scanner input = new Scanner(System.in);
-            mainInput = input.next();
-            mainInput = mainInput.toUpperCase();
-            switch (mainInput) {
+            AskInput myAsk = new AskInput();
+            String mainMenuInput = myAsk.askMenuInput();
+            switch (mainMenuInput) {
                 case "Q":
                     this.myMainControl.quitGame();
                     myReturn = 1;
@@ -54,7 +52,7 @@ public class MainMenuView {
                     myMainControl.displayBoard();
                     break;
                 case "M":
-                    this.display();
+                    this.displayMainMenu();
                     break;
                 case "B":
                     myMainControl.displayBoard();
@@ -75,12 +73,9 @@ public class MainMenuView {
                 case "S":
                     this.myMainControl.arraySample();
                     break;
-                case "E":
-                    this.myMainControl.easterEgg();
-                    break;
                 case "H":
                     this.myMainControl.displayHelp();
-                    this.display();
+                    this.displayMainMenu();
                     myMainControl.displayBoard();
                     break;
                 default:
@@ -90,12 +85,12 @@ public class MainMenuView {
             return myReturn;
     }
     
-    public void display()
+    public void displayMainMenu()
     {
         System.out.println("=============== Main Menu ===============");
         for(int i = 0; i < MainMenuView.menuItems.length; i++)
         {
-            System.out.println("\t" + MainMenuView.menuItems[i][0] + "\t" + MainMenuView.menuItems[i][1]);
+            System.out.println("\t" + this.menuItems[i][0] + "\t" + this.menuItems[i][1]);
         }
         System.out.println("=========================================");
     }

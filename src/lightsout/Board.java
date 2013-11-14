@@ -6,18 +6,16 @@ package lightsout;
 import java.util.Random;
 
 /**
- *
  * @author Clinton
  */
 
 public class Board {
-    int boardHeight = 5;
-    int boardWidth = 5;
-    String[] topLabels = {"A","B","C","D","E"};
-    String[] sideLabels = {"1","2","3","4","5"};
-    char onSymbol = (char)88;
-    char offSymbol = (char)32;
-    int lightsOnStart = 7;
+    private int boardHeight = 5;
+    private int boardWidth = 5;
+    private String[] topLabels = {"A","B","C","D","E"};
+    private String[] sideLabels = {"1","2","3","4","5"};
+    private int lightsOnStart = 7;
+    private Light light = new Light(this);
     
     //Here is the default board - change later
             int[][] boardArray = new int[][]{
@@ -49,7 +47,6 @@ public class Board {
     }
     
     public static int randInt(int min, int max) {
-
     // Usually this can be a field rather than a method variable
     Random rand = new Random();
 
@@ -83,11 +80,11 @@ public class Board {
                 //If light is on
                 if(this.boardArray[h][w] == 1)
                 {
-                    boardLines += " " + this.onSymbol + " |";
+                    boardLines += " " + this.light.getOnSymbol() + " |";
                 }
                 //If light is not on
                 else{
-                    boardLines += " " + this.offSymbol + " |";
+                    boardLines += " " + this.light.getOffSymbol() + " |";
                 }
             }
             System.out.println(boardLines); 
@@ -113,4 +110,26 @@ public class Board {
         }
         return count;
     }
+    public int convertColToInt(String column){
+        switch(column)
+        {
+            case "A":
+                    return 0;
+            case "B":
+                    return 1;
+            case "C":
+                    return 2;
+            case "D":
+                    return 3;
+            case "E":
+                    return 4;
+        }
+        return 0;
+    }   
+    
+    public int convertRowToInt(String row){
+        int rowInt;
+        rowInt = Integer.parseInt(row);
+        return rowInt-1;
+    }   
 }
