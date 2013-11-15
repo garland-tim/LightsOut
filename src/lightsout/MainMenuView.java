@@ -37,8 +37,16 @@ public class MainMenuView {
            }
         while (theReturn != 1);
     }
+
+    public MainMenuControl getMyMainControl() {
+        return myMainControl;
+    }
+
+    public void setMyMainControl(MainMenuControl myMainControl) {
+        this.myMainControl = myMainControl;
+    }
     
-    public int runMenu(){
+    private int runMenu(){
         int myReturn = 0;
             AskInput myAsk = new AskInput();
             String mainMenuInput = myAsk.askMenuInput();
@@ -85,7 +93,7 @@ public class MainMenuView {
             return myReturn;
     }
     
-    public void displayMainMenu()
+    private void displayMainMenu()
     {
         System.out.println("=============== Main Menu ===============");
         for(int i = 0; i < MainMenuView.menuItems.length; i++)

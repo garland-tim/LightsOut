@@ -3,13 +3,14 @@
  * and open the template in the editor.
  */
 package lightsout;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * @author Clinton
  */
 
-public class Board {
+public class Board implements Serializable {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
@@ -29,6 +30,62 @@ public class Board {
     public Board(){
         this.createBoard();
     }
+
+    public int getBoardHeight() {
+        return boardHeight;
+    }
+
+    public void setBoardHeight(int boardHeight) {
+        this.boardHeight = boardHeight;
+    }
+
+    public int getBoardWidth() {
+        return boardWidth;
+    }
+
+    public void setBoardWidth(int boardWidth) {
+        this.boardWidth = boardWidth;
+    }
+
+    public String[] getTopLabels() {
+        return topLabels;
+    }
+
+    public void setTopLabels(String[] topLabels) {
+        this.topLabels = topLabels;
+    }
+
+    public String[] getSideLabels() {
+        return sideLabels;
+    }
+
+    public void setSideLabels(String[] sideLabels) {
+        this.sideLabels = sideLabels;
+    }
+
+    public int getLightsOnStart() {
+        return lightsOnStart;
+    }
+
+    public void setLightsOnStart(int lightsOnStart) {
+        this.lightsOnStart = lightsOnStart;
+    }
+
+    public Light getLight() {
+        return light;
+    }
+
+    public void setLight(Light light) {
+        this.light = light;
+    }
+
+    public int[][] getBoardArray() {
+        return boardArray;
+    }
+
+    public void setBoardArray(int[][] boardArray) {
+        this.boardArray = boardArray;
+    }
     
     public void createBoard(){
         int numOfLightsThisRow;
@@ -46,7 +103,7 @@ public class Board {
         }
     }
     
-    public static int randInt(int min, int max) {
+    private static int randInt(int min, int max) {
     // Usually this can be a field rather than a method variable
     Random rand = new Random();
 

@@ -4,11 +4,13 @@
  */
 package lightsout;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Clinton
  */
-public class Light {
+public class Light implements Serializable {
     Board board;
     private char onSymbol = (char)88;
     private char offSymbol = (char)32;

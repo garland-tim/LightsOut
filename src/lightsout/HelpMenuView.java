@@ -4,6 +4,7 @@
  */
 package lightsout;
 
+import java.io.Serializable;
 import java.util.Scanner;
 /**
  *
@@ -11,7 +12,7 @@ import java.util.Scanner;
  */
 
 
-public class HelpMenuView {
+public class HelpMenuView implements Serializable {
     
     private final static String[][] menuItems = {
     {"L", "The Light"},
@@ -20,6 +21,26 @@ public class HelpMenuView {
     {"P", "The Player"},
     {"Q", "Quit Help"}
 };
+
+    public HelpMenuView() {
+    }
+
+    public HelpMenuControl getMyMenuControl() {
+        return myMenuControl;
+    }
+
+    public void setMyMenuControl(HelpMenuControl myMenuControl) {
+        this.myMenuControl = myMenuControl;
+    }
+
+    public AskInput getMyAsk() {
+        return myAsk;
+    }
+
+    public void setMyAsk(AskInput myAsk) {
+        this.myAsk = myAsk;
+    }
+    
     
     HelpMenuControl myMenuControl = new HelpMenuControl();
     AskInput myAsk = new AskInput();

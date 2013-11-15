@@ -4,14 +4,15 @@
  */
 package lightsout;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Tim
  */
-public class AskInput {
-    Board board;
+public class AskInput implements Serializable {
+    private Board board;
     
     public AskInput(){
         

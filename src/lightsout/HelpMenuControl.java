@@ -4,11 +4,17 @@
  */
 package lightsout;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Clinton
  */
-public class HelpMenuControl {
+public class HelpMenuControl implements Serializable {
+
+    public HelpMenuControl() {
+    }
+    
     public void displayLightHelp(){
         System.out.println("The filled in locations are the on lights, while the empty locations are the \n"
                 + "off lights. Once the board is empty all lights are off.");

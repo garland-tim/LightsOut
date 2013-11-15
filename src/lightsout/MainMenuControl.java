@@ -4,11 +4,13 @@
  */
 package lightsout;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Clinton
  */
-public class MainMenuControl {
+public class MainMenuControl implements Serializable {
     Board myBoard;
     
     public void quitGame(){
