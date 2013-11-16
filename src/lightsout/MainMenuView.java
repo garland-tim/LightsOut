@@ -122,7 +122,7 @@ public class MainMenuView {
         int rowInt = location[1];
         
         //Change that light!
-        Light light = new Light(this.myBoard);
+        Board.Light light = this.myBoard.new Light(this.myBoard);
         light.changeLight(columnInt, rowInt);
                 
         //Get neighbors and change them
