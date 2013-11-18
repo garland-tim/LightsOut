@@ -5,6 +5,7 @@
 package lightsout;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -75,4 +76,32 @@ public class AskInput implements Serializable {
            }
         }
     }
+
+    @Override
+    public String toString() {
+        return "AskInput{" + "board=" + board + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.board);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AskInput other = (AskInput) obj;
+        if (!Objects.equals(this.board, other.board)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

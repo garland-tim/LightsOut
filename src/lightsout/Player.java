@@ -4,6 +4,7 @@
  */
 package lightsout;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -32,4 +33,32 @@ public class Player {
     public void printName(){
         System.out.println("\nWelcome " + this.name + "\n");
     }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.name);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Player other = (Player) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

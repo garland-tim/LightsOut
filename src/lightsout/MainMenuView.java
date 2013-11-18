@@ -5,6 +5,7 @@
 package lightsout;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Scanner;
 /**
  *
@@ -247,5 +248,32 @@ public class MainMenuView {
         System.out.println("The lowest (min) number in array: " + min);
     }
 }
+
+    @Override
+    public String toString() {
+        return "MainMenuView{" + "myMainControl=" + myMainControl + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.myMainControl);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MainMenuView other = (MainMenuView) obj;
+        if (!Objects.equals(this.myMainControl, other.myMainControl)) {
+            return false;
+        }
+        return true;
+    }
 
 }

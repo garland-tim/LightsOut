@@ -5,6 +5,7 @@
 package lightsout;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Scanner;
 /**
  *
@@ -113,5 +114,36 @@ public class HelpMenuView implements Serializable {
         System.out.println("That is not a valid menu option. Please enter a vaild menu option.");
     }
 }
+
+    @Override
+    public String toString() {
+        return "HelpMenuView{" + "myMenuControl=" + myMenuControl + ", myAsk=" + myAsk + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.myMenuControl);
+        hash = 37 * hash + Objects.hashCode(this.myAsk);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final HelpMenuView other = (HelpMenuView) obj;
+        if (!Objects.equals(this.myMenuControl, other.myMenuControl)) {
+            return false;
+        }
+        if (!Objects.equals(this.myAsk, other.myAsk)) {
+            return false;
+        }
+        return true;
+    }
     
 }

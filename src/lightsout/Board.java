@@ -4,6 +4,8 @@
  */
 package lightsout;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -234,5 +236,57 @@ public class Light implements Serializable {
     }
 
 }
+
+    @Override
+    public String toString() {
+        return "Board{" + "boardHeight=" + boardHeight + ", boardWidth=" + boardWidth + ", topLabels=" + topLabels + ", sideLabels=" + sideLabels + ", lightsOnStart=" + lightsOnStart + ", light=" + light + ", boardArray=" + boardArray + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + this.boardHeight;
+        hash = 67 * hash + this.boardWidth;
+        hash = 67 * hash + Arrays.deepHashCode(this.topLabels);
+        hash = 67 * hash + Arrays.deepHashCode(this.sideLabels);
+        hash = 67 * hash + this.lightsOnStart;
+        hash = 67 * hash + Objects.hashCode(this.light);
+        hash = 67 * hash + Arrays.deepHashCode(this.boardArray);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Board other = (Board) obj;
+        if (this.boardHeight != other.boardHeight) {
+            return false;
+        }
+        if (this.boardWidth != other.boardWidth) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.topLabels, other.topLabels)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.sideLabels, other.sideLabels)) {
+            return false;
+        }
+        if (this.lightsOnStart != other.lightsOnStart) {
+            return false;
+        }
+        if (!Objects.equals(this.light, other.light)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.boardArray, other.boardArray)) {
+            return false;
+        }
+        return true;
+    }
+
 
 }
