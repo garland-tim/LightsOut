@@ -13,9 +13,9 @@ import java.util.Scanner;
  */
 
 
-public class HelpMenuView implements Serializable {
+public class HelpMenuView extends Menu implements Serializable  {
     
-    private final static String[][] menuItems = {
+    private static final String[][] menuItems = {
     {"L", "The Light"},
     {"B", "The Board"},
     {"R", "The Rules"},
@@ -24,6 +24,7 @@ public class HelpMenuView implements Serializable {
 };
 
     public HelpMenuView() {
+        super(HelpMenuView.menuItems);
     }
 
     public HelpMenuControl getMyMenuControl() {
@@ -45,6 +46,7 @@ public class HelpMenuView implements Serializable {
     
     HelpMenuControl myMenuControl = new HelpMenuControl();
     AskInput myAsk = new AskInput();
+    @Override
     public int processMenuInput(){
         int myReturn = 0;
         String helpInput = myAsk.askMenuInput();
@@ -71,16 +73,6 @@ public class HelpMenuView implements Serializable {
             return myReturn;
     }
     
-    public void displayHelpMenu()
-    {
-        System.out.println("=============== Help Menu ===============");
-        System.out.println("Please enter the letter for your choice: ");
-        for(int i = 0; i < HelpMenuView.menuItems.length; i++)
-        {
-            System.out.println("\t" + this.menuItems[i][0] + "\t" + this.menuItems[i][1]);
-        }
-        System.out.println("=========================================");
-    }
     public class HelpMenuControl implements Serializable {
 
     public HelpMenuControl() {

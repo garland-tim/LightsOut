@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 
 
-public class MainMenuView {
+public class MainMenuView extends Menu implements Serializable {
     private final static String[][] menuItems = {
     {"S", "See array sort"},
     {"T", "Tim's Lesson 6"},
@@ -30,12 +30,13 @@ public class MainMenuView {
     MainMenuControl myMainControl = new MainMenuControl();
     
     public MainMenuView(){
-        this.displayMainMenu();
+        super(MainMenuView.menuItems);
+        this.displayMenu();
         myMainControl.newGame();
         myMainControl.displayBoard();
         int theReturn;
         do {
-            theReturn = this.runMenu();
+            theReturn = this.processMenuInput();
            }
         while (theReturn != 1);
     }
@@ -48,7 +49,8 @@ public class MainMenuView {
         this.myMainControl = myMainControl;
     }
     
-    private int runMenu(){
+    @Override
+    public int processMenuInput(){
         int myReturn = 0;
             AskInput myAsk = new AskInput();
             String mainMenuInput = myAsk.askMenuInput();
@@ -62,7 +64,7 @@ public class MainMenuView {
                     myMainControl.displayBoard();
                     break;
                 case "M":
-                    this.displayMainMenu();
+                    this.displayMenu();
                     break;
                 case "B":
                     myMainControl.displayBoard();
@@ -85,7 +87,7 @@ public class MainMenuView {
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
-                    this.displayMainMenu();
+                    this.displayMenu();
                     myMainControl.displayBoard();
                     break;
                 default:
@@ -93,16 +95,6 @@ public class MainMenuView {
                     myReturn = -1;
             }
             return myReturn;
-    }
-    
-    private void displayMainMenu()
-    {
-        System.out.println("=============== Main Menu ===============");
-        for(int i = 0; i < MainMenuView.menuItems.length; i++)
-        {
-            System.out.println("\t" + this.menuItems[i][0] + "\t" + this.menuItems[i][1]);
-        }
-        System.out.println("=========================================");
     }
     
     private class MainMenuControl implements Serializable {
@@ -179,7 +171,7 @@ public class MainMenuView {
         HelpMenuView myHelpMenu = new HelpMenuView();
         int theReturn;
         do {
-            myHelpMenu.displayHelpMenu();
+            myHelpMenu.displayMenu();
             theReturn = myHelpMenu.processMenuInput();
            }
         while (theReturn != 1);
