@@ -18,6 +18,7 @@ public class MainMenuView extends Menu implements Serializable {
     {"S", "See array sort"},
     {"T", "Tim's Lesson 6"},
     {"G", "Goodman's Lesson 6"},
+    {"P", "Goodman's Lesson 9 (Super Class)"},
     {"C", "Change Light"},
     {"Q", "Quit the Game"},
     {"N", "New Game"},
@@ -84,6 +85,9 @@ public class MainMenuView extends Menu implements Serializable {
                     break;
                 case "S":
                     this.myMainControl.arraySample();
+                    break;
+                case "P":
+                    this.myMainControl.goodmanSuperClass();
                     break;
                 case "H":
                     this.myMainControl.displayHelp();
@@ -175,6 +179,11 @@ public class MainMenuView extends Menu implements Serializable {
             theReturn = myHelpMenu.processMenuInput();
            }
         while (theReturn != 1);
+    }
+    
+    public void goodmanSuperClass(){
+        SayHello2 mySuperClass = new SayHello2();
+        mySuperClass.SayHello2();
     }
     
     public void errorMessage(){
