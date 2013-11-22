@@ -161,8 +161,8 @@ public class Board implements Serializable {
     public int checkBoard() {
         int count = 0;
         
-        for(int row = 0; row < 5; row ++){
-            for(int column = 0; column < 5; column++){
+        for(int row = 0; row < this.boardHeight; row ++){
+            for(int column = 0; column < this.boardWidth; column++){
                 if(this.boardArray[row][column] == 1)
                         count++;
             }
