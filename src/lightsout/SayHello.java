@@ -11,8 +11,8 @@ import java.io.Serializable;
  * @author Clinton
  */
 public abstract class SayHello implements Serializable{
-    private final int var1 = 1;
-    private final int var2 = 7;
+    private final static int var1 = 1;
+    private final static int var2 = 7;
     public SayHello(){
         
     }
