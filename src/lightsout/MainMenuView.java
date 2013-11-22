@@ -182,7 +182,7 @@ public class MainMenuView extends Menu implements Serializable {
     }
     
     public void goodmanSuperClass(){
-        SayHello2 mySuperClass = new SayHello2();
+        SayHello2 mySuperClass = new SayHello2() {};
         mySuperClass.SayHello2();
     }
     

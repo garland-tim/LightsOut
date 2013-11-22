@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Clinton
  */
-public class SayHello implements Serializable{
+public abstract class SayHello implements Serializable{
     private final int var1 = 1;
     private final int var2 = 7;
     public SayHello(){
@@ -33,6 +33,8 @@ public class SayHello implements Serializable{
     public int getVar2() {
         return var2;
     }
+    
+    public abstract void sayBye();
 
     @Override
     public int hashCode() {

@@ -8,9 +8,14 @@ package lightsout;
  *
  * @author Clinton
  */
-public class SayHello2 extends SayHello {
+public abstract class SayHello2 extends SayHello {
     public void SayHello2(){
      this.displayHello();
      this.displayAddition();
+    }
+    
+    @Override
+    public void sayBye(){
+        System.out.println("Bye now");
     }
 }
