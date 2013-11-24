@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class MainMenuView extends Menu implements Serializable {
     private final static String[][] menuItems = {
     {"S", "See array sort"},
-    {"T", "Tim's Lesson 6"},
+    {"T", "Tim's Lesson 9 (Super Class)"},
     {"G", "Goodman's Lesson 6"},
     {"P", "Goodman's Lesson 9 (Super Class)"},
     {"C", "Change Light"},
@@ -74,7 +74,7 @@ public class MainMenuView extends Menu implements Serializable {
                     this.myMainControl.showLightsOn();
                     break;
                 case "T":
-                    this.myMainControl.Tim();
+                    this.myMainControl.TimSuperClass();
                     break;
                 case "G":
                     this.myMainControl.Goodman();
@@ -184,6 +184,11 @@ public class MainMenuView extends Menu implements Serializable {
     public void goodmanSuperClass(){
         SayHello2 mySuperClass = new SayHello2() {};
         mySuperClass.SayHello2();
+    }
+    
+    public void TimSuperClass(){
+        Goodbye mySuperClass = new Goodbye() {};
+        mySuperClass.Goodbye();
     }
     
     public void errorMessage(){
