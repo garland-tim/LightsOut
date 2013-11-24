@@ -17,7 +17,7 @@ public abstract class Goodbye2 implements Serializable{
         
     }
     public void displayGoodbye(){
-        System.out.println("Goedbye everyone!");
+        System.out.println("Goodbye everyone!");
     }
     public int subtraction(int var1, int var2){
         return var1 - var2;
