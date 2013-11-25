@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
 import lightsout.AskInput;
-import lightsout.Menu;
 /**
  *
  * @author Clinton

@@ -11,7 +11,6 @@ import java.util.Scanner;
 import lightsout.AskInput;
 import lightsout.Board;
 import lightsout.Goodbye;
-import lightsout.Menu;
 import lightsout.SayHello2;
 /**
  *
