@@ -50,7 +50,7 @@ public abstract class Goodbye2 implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Goodbye other = (Goodbye) obj;
+        final Goodbye2 other = (Goodbye2) obj;
         if (this.var1 != other.var1) {
             return false;
         }

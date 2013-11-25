@@ -2,11 +2,17 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package lightsout;
+package lightsout.views;
 
+import lightsout.views.HelpMenuView;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
+import lightsout.AskInput;
+import lightsout.Board;
+import lightsout.Goodbye;
+import lightsout.Menu;
+import lightsout.SayHello2;
 /**
  *
  * @author Clinton
