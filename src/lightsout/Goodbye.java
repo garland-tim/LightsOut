@@ -8,7 +8,7 @@ package lightsout;
  *
  * @author Tim
  */
-public abstract class GoodBye extends Goodbye2 {
+public abstract class Goodbye extends Goodbye2 {
     public void Goodbye(){
      this.displayGoodbye();
      this.displaySubtraction();
