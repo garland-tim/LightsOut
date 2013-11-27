@@ -35,11 +35,11 @@ public class MainMenuView extends Menu implements Serializable {
         this.displayMenu();
         myMainControl.newGame();
         myMainControl.displayBoard();
-        int theReturn;
+        Status menuReturn;
         do {
-            theReturn = this.processMenuInput();
+            menuReturn = this.processMenuInput();
            }
-        while (theReturn != 1);
+        while (menuReturn == Status.IN_PROGRESS || menuReturn == Status.ERROR);
     }
 
     public MainMenuControl getMyMainControl() {
@@ -51,52 +51,54 @@ public class MainMenuView extends Menu implements Serializable {
     }
     
     @Override
-    public int processMenuInput(){
-        int myReturn = 0;
+    public Status processMenuInput(){
+        Status myReturn;
             AskInput myAsk = new AskInput();
             String mainMenuInput = myAsk.askMenuInput();
             switch (mainMenuInput) {
                 case "Q":
-                    this.myMainControl.quitGame();
-                    myReturn = 1;
+                    myReturn = this.myMainControl.quitGame();
                     break;
                 case "N":
-                    this.myMainControl.newGame();
+                    myReturn = this.myMainControl.newGame();
                     myMainControl.displayBoard();
                     break;
                 case "M":
-                    this.displayMenu();
+                    myReturn = this.displayMenu();
                     break;
                 case "B":
-                    myMainControl.displayBoard();
+                    myReturn = myMainControl.displayBoard();
                     break;
                 case "L":
-                    this.myMainControl.showLightsOn();
+                    myReturn = this.myMainControl.showLightsOn();
                     break;
                 case "T":
                     this.myMainControl.Tim();
+                    myReturn = Status.IN_PROGRESS;
                     break;
                 case "G":
                     this.myMainControl.Goodman();
+                    myReturn = Status.IN_PROGRESS;
                     break;
                 case "C":
-                    this.myMainControl.changeLight();
+                    myReturn = this.myMainControl.changeLight();
                     myMainControl.displayBoard();
                     break;
                 case "S":
                     this.myMainControl.arraySample();
+                    myReturn = Status.IN_PROGRESS;
                     break;
                 case "P":
                     this.myMainControl.goodmanSuperClass();
+                    myReturn = Status.IN_PROGRESS;
                     break;
                 case "H":
-                    this.myMainControl.displayHelp();
+                    myReturn = this.myMainControl.displayHelp();
                     this.displayMenu();
                     myMainControl.displayBoard();
                     break;
                 default:
-                    this.myMainControl.errorMessage();
-                    myReturn = -1;
+                    myReturn = this.myMainControl.errorMessage();
             }
             return myReturn;
     }
@@ -104,14 +106,15 @@ public class MainMenuView extends Menu implements Serializable {
     private class MainMenuControl implements Serializable {
     Board myBoard;
     
-    public void quitGame(){
+    public Status quitGame(){
         System.out.println("Thanks for playing!");
+        return Status.QUIT;
     }
     
     public MainMenuControl(){
     }
     
-    public void changeLight(){
+    public Status changeLight(){
         //Get input
         AskInput myAsk = new AskInput(this.myBoard);
         int[] location = myAsk.getLocation();
@@ -152,33 +155,42 @@ public class MainMenuView extends Menu implements Serializable {
         //Check to see if game is done
         if (this.myBoard.checkBoard() == 0){
             System.out.println("You just done won the game!  Press m for Main Menu!");
+            return Status.SOLVED;
         }
+        return Status.IN_PROGRESS;
     }
     
-    public void newGame(){
+    public Status newGame(){
         this.myBoard = new Board();
+        return Status.IN_PROGRESS;
     }
     
-    public void showLightsOn(){
+    public Status showLightsOn(){
         int lightsLeft = this.myBoard.checkBoard();
-        if(lightsLeft == 0)
+        if(lightsLeft == 0){
             System.out.println("You have won the game!");
-        else
+            return Status.SOLVED;
+        }
+        else{
             System.out.println("You still have " + lightsLeft + " spaces left");
+            return Status.IN_PROGRESS;
+        }   
     }
     
-    public void displayBoard(){
+    public Status displayBoard(){
         this.myBoard.displayBoard();
+        return Status.IN_PROGRESS;
     }
     
-    public void displayHelp(){
+    public Status displayHelp(){
         HelpMenuView myHelpMenu = new HelpMenuView();
-        int theReturn;
+        Status theReturn;
         do {
             myHelpMenu.displayMenu();
             theReturn = myHelpMenu.processMenuInput();
            }
-        while (theReturn != 1);
+        while (theReturn == Status.CONTINUE);
+        return Status.IN_PROGRESS;
     }
     
     public void goodmanSuperClass(){
@@ -186,8 +198,9 @@ public class MainMenuView extends Menu implements Serializable {
         mySuperClass.SayHello2();
     }
     
-    public void errorMessage(){
+    public Status errorMessage(){
         System.out.println("Somethings fishy here.... invalid command");
+        return Status.ERROR;
     }
     
     public void arraySample()

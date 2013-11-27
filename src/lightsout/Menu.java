@@ -15,7 +15,7 @@ public abstract class Menu {
         this.menuItems = menuItems;
     }
     
-    public void displayMenu()
+    public Status displayMenu()
     {
         System.out.println("================= Menu ==================");
         System.out.println("Please enter the letter for your choice: ");
@@ -24,6 +24,7 @@ public abstract class Menu {
             System.out.println("\t" + this.menuItems[i][0] + "\t" + this.menuItems[i][1]);
         }
         System.out.println("=========================================");
+        return Status.IN_PROGRESS;
     }
-    public abstract int processMenuInput();
+    public abstract Status processMenuInput();
 }

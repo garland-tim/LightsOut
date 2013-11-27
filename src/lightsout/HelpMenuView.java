@@ -47,28 +47,32 @@ public class HelpMenuView extends Menu implements Serializable  {
     HelpMenuControl myMenuControl = new HelpMenuControl();
     AskInput myAsk = new AskInput();
     @Override
-    public int processMenuInput(){
-        int myReturn = 0;
+    public Status processMenuInput(){
+        Status myReturn;
         String helpInput = myAsk.askMenuInput();
             switch (helpInput) {
                 case "L":
                     this.myMenuControl.displayLightHelp();
+                    myReturn = Status.CONTINUE;
                     break;
                 case "B":
                     this.myMenuControl.displayBoardHelp();
+                    myReturn = Status.CONTINUE;
                     break;
                 case "R":
                     this.myMenuControl.displayRulesHelp();
+                    myReturn = Status.CONTINUE;
                     break;
                 case "P":
                     this.myMenuControl.displayPlayerHelp();
+                    myReturn = Status.CONTINUE;
                     break;
                 case "Q":
-                    myReturn = 1;
+                    myReturn = Status.RETURN;
                     break;
                 default:
                     this.myMenuControl.errorMessage();
-                    myReturn = -1;
+                    myReturn = Status.ERROR;
             }
             return myReturn;
     }
