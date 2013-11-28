@@ -7,7 +7,7 @@ package lightsout.views;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
-import lightsout.AskInput;
+import lightsout.controls.AskInput;
 import lightsout.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;

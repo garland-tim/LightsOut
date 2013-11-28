@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package lightsout;
+package lightsout.controls;
 
+import lightsout.controls.AskInput;
 import java.util.Objects;
 import java.util.Scanner;
 
