@@ -54,7 +54,7 @@ public class HelpMenuView extends Menu implements Serializable  {
     @Override
     public Status processMenuInput(){
         Status myReturn;
-        String helpInput = myAsk.askMenuInput();
+        String helpInput = this.getInput();
             switch (helpInput) {
                 case "L":
                     this.myMenuControl.displayLightHelp();

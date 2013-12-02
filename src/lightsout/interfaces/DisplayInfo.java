@@ -4,10 +4,12 @@
  */
 package lightsout.interfaces;
 
+import lightsout.Status;
+
 /**
  *
  * @author Clinton
  */
 public interface DisplayInfo {
-    void display();
+    Status displayMenu();
 }

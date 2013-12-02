@@ -4,17 +4,19 @@
  */
 package lightsout.views;
 import lightsout.Status;
+import lightsout.controls.AskInput;
 /**
  *
  * @author Clinton
  */
-public abstract class Menu implements lightsout.DisplayInfo {
+public abstract class Menu implements lightsout.interfaces.DisplayInfo, lightsout.interfaces.EnterInfo {
     private String[][] menuItems;
     
     public Menu(String[][] menuItems){
         this.menuItems = menuItems;
     }
     
+    @Override
     public Status displayMenu()
     {
         System.out.println("================= Menu ==================");
@@ -26,5 +28,13 @@ public abstract class Menu implements lightsout.DisplayInfo {
         System.out.println("=========================================");
         return Status.IN_PROGRESS;
     }
+    
+    @Override
+    public String getInput(){
+            AskInput myAsk = new AskInput();
+            String mainMenuInput = myAsk.askMenuInput();
+            return mainMenuInput;
+    }
+    
     public abstract Status processMenuInput();
 }

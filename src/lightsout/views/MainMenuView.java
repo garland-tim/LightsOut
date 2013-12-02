@@ -58,8 +58,7 @@ public class MainMenuView extends Menu implements Serializable {
     @Override
     public Status processMenuInput(){
         Status myReturn;
-            AskInput myAsk = new AskInput();
-            String mainMenuInput = myAsk.askMenuInput();
+            String mainMenuInput = this.getInput();
             switch (mainMenuInput) {
                 case "Q":
                     myReturn = this.myMainControl.quitGame();
