@@ -4,7 +4,7 @@
  */
 package lightsout.interfaces;
 
-import lightsout.Status;
+import lightsout.enums.Status;
 
 /**
  *

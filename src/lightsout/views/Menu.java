@@ -3,8 +3,8 @@
  * and open the template in the editor.
  */
 package lightsout.views;
-import lightsout.Status;
-import lightsout.controls.AskInput;
+import lightsout.enums.Status;
+import lightsout.models.AskInput;
 /**
  *
  * @author Clinton

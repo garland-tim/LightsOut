@@ -4,7 +4,7 @@
  */
 package lightsout;
 
-import lightsout.controls.Player;
+import lightsout.models.Player;
 import lightsout.views.MainMenuView;
 import java.util.Random;
 import java.util.Scanner;

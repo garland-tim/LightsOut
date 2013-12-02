@@ -2,17 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package lightsout;
+package lightsout.models;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
+import lightsout.enums.LightSwitch;
 
 /**
  * @author Clinton
  */
 
-public class Board implements Serializable, DisplayInfo {
+public class Board implements Serializable {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
@@ -21,12 +22,12 @@ public class Board implements Serializable, DisplayInfo {
     private Light light = new Light(this);
     
     //Here is the default board - change later
-            int[][] boardArray = new int[][]{
-            { 0, 0, 0, 0, 0},
-            { 0, 0, 0, 0, 0},
-            { 0, 0, 0, 0, 0},
-            { 0, 0, 0, 0, 0},
-            { 0, 0, 0, 0, 0}
+            LightSwitch[][] boardArray = new LightSwitch[][]{
+            { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF},
+            { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF},
+            { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF},
+            { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF},
+            { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF}
         };
     
     public Board(){
@@ -81,11 +82,11 @@ public class Board implements Serializable, DisplayInfo {
         this.light = light;
     }
 
-    public int[][] getBoardArray() {
+    public LightSwitch[][] getBoardArray() {
         return boardArray;
     }
 
-    public void setBoardArray(int[][] boardArray) {
+    public void setBoardArray(LightSwitch[][] boardArray) {
         this.boardArray = boardArray;
     }
     
@@ -100,7 +101,7 @@ public class Board implements Serializable, DisplayInfo {
             for(int i=0; i < numOfLightsThisRow; i++)
             {
                 randInArray = randInt(0, this.boardArray[h].length-1);
-                this.boardArray[h][randInArray] = 1;
+                this.boardArray[h][randInArray] = LightSwitch.ON;
             }
         }
     }
@@ -137,7 +138,7 @@ public class Board implements Serializable, DisplayInfo {
             for(int w=0; w < this.boardWidth; w++)
             {
                 //If light is on
-                if(this.boardArray[h][w] == 1)
+                if(this.boardArray[h][w] == LightSwitch.ON)
                 {
                     boardLines += " " + this.light.getOnSymbol() + " |";
                 }
@@ -163,7 +164,7 @@ public class Board implements Serializable, DisplayInfo {
         
         for(int row = 0; row < this.boardHeight; row ++){
             for(int column = 0; column < this.boardWidth; column++){
-                if(this.boardArray[row][column] == 1)
+                if(this.boardArray[row][column] == LightSwitch.ON)
                         count++;
             }
         }
@@ -226,12 +227,12 @@ public class Light implements Serializable {
     }
     
     public void changeLight(int columnInt, int rowInt){
-        if(this.board.boardArray[rowInt][columnInt] == 1)
+        if(this.board.boardArray[rowInt][columnInt] == LightSwitch.ON)
         {
-            this.board.boardArray[rowInt][columnInt] = 0;
+            this.board.boardArray[rowInt][columnInt] = LightSwitch.OFF;
         }
         else{
-            this.board.boardArray[rowInt][columnInt] = 1;
+            this.board.boardArray[rowInt][columnInt] = LightSwitch.ON;
         }
     }
 

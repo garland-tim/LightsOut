@@ -7,11 +7,11 @@ package lightsout.views;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
-import lightsout.controls.AskInput;
-import lightsout.Board;
+import lightsout.models.AskInput;
+import lightsout.models.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;
-import lightsout.Status;
+import lightsout.enums.Status;
 /**
  *
  * @author Clinton
