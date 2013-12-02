@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Clinton
  */
 
-public class Board implements Serializable {
+public class Board implements Serializable, DisplayInfo {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
@@ -116,7 +116,7 @@ public class Board implements Serializable {
     return randomNum;
     }
     
-    public void displayBoard(){
+    public void display(){
         //Top Row
         String topRow = "   ";
         for(int i=0; i < this.topLabels.length; i++)

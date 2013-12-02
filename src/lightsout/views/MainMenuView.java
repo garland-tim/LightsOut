@@ -183,7 +183,7 @@ public class MainMenuView extends Menu implements Serializable {
     }
     
     public Status displayBoard(){
-        this.myBoard.displayBoard();
+        this.myBoard.display();
         return Status.IN_PROGRESS;
     }
     

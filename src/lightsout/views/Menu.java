@@ -8,7 +8,7 @@ import lightsout.Status;
  *
  * @author Clinton
  */
-public abstract class Menu {
+public abstract class Menu implements lightsout.DisplayInfo {
     private String[][] menuItems;
     
     public Menu(String[][] menuItems){
