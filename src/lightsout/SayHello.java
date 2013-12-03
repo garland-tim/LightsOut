@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Clinton
  */
-public abstract class SayHello implements Serializable{
+public abstract class SayHello implements Serializable, lightsout.interfaces.Random {
     private final static int var1 = 1;
     private final static int var2 = 7;
     public SayHello(){
@@ -35,6 +35,21 @@ public abstract class SayHello implements Serializable{
     }
     
     public abstract void sayBye();
+    
+    @Override
+    public int randInt(int min, int max){
+    // Usually this can be a field rather than a method variable
+    java.util.Random rand = new java.util.Random();
+
+    // nextInt is normally exclusive of the top value,
+    // so add 1 to make it inclusive
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+    
+    //Changed this to make a polymorphic example
+    randomNum = rand.nextInt((randomNum - min) + 1) + min;
+
+    return randomNum;
+    }
 
     @Override
     public int hashCode() {

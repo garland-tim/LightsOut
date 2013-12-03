@@ -13,7 +13,7 @@ import lightsout.enums.LightSwitch;
  * @author Clinton
  */
 
-public class Board implements Serializable {
+public class Board implements Serializable, lightsout.interfaces.Random {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
@@ -106,9 +106,10 @@ public class Board implements Serializable {
         }
     }
     
-    private static int randInt(int min, int max) {
+    @Override
+    public int randInt(int min, int max){
     // Usually this can be a field rather than a method variable
-    Random rand = new Random();
+    java.util.Random rand = new java.util.Random();
 
     // nextInt is normally exclusive of the top value,
     // so add 1 to make it inclusive
