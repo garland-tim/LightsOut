@@ -107,7 +107,7 @@ public class MainMenuView extends Menu implements Serializable {
             return myReturn;
     }
     
-    private class MainMenuControl implements Serializable {
+    private class MainMenuControl implements Serializable, lightsout.interfaces.ErrorInfo {
     Board myBoard;
     
     public Status quitGame(){
@@ -202,8 +202,13 @@ public class MainMenuView extends Menu implements Serializable {
         mySuperClass.SayHello2();
     }
     
+    @Override
+    public void errormsg(String message){
+        System.out.println(message);
+    }
+    
     public Status errorMessage(){
-        System.out.println("Somethings fishy here.... invalid command");
+        errormsg("Somethings fishy here.... invalid command");
         return Status.ERROR;
     }
     

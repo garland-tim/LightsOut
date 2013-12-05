@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Tim
  */
-public class AskInput implements Serializable {
+public class AskInput implements Serializable, lightsout.interfaces.ErrorInfo {
     private Board board;
     
     public AskInput(){
@@ -37,6 +37,14 @@ public class AskInput implements Serializable {
        return menuInput;
     }
     
+    /**
+     *
+     * @param message
+     */
+    @Override
+    public void errormsg(String message) {
+        System.out.println(message);
+    }
     public int[] getLocation() {
         String location;
         Integer doContinue = 1;
@@ -55,13 +63,13 @@ public class AskInput implements Serializable {
         //Is column A-E?
         if(!column.equals("A") && !column.equals("B") && !column.equals("C") && !column.equals("D") && !column.equals("E"))
         {
-            System.out.println("Please enter a valid column option.");
+            errormsg("Please enter a valid column option.");
         }
         //Column is valid
         else{
             if(!"1".equals(row) && !"2".equals(row) && !"3".equals(row) && !"4".equals(row) && !"5".equals(row))
             {
-                System.out.println("Please enter a valid row option.");
+                errormsg("Please enter a valid row option.");
             }
             //Row is Valid
             else
