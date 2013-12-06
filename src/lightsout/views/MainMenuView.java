@@ -12,6 +12,7 @@ import lightsout.models.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;
 import lightsout.enums.Status;
+import lightsout.exceptions.BoardException;
 /**
  *
  * @author Clinton
@@ -121,9 +122,23 @@ public class MainMenuView extends Menu implements Serializable {
     public Status changeLight(){
         //Get input
         AskInput myAsk = new AskInput(this.myBoard);
-        int[] location = myAsk.getLocation();
-        int columnInt = location[0];
-        int rowInt = location[1];
+        boolean tryAgain = false;
+        int[] validLocation = {-1,-1};
+        
+        do{
+            try{
+                String location = myAsk.getLocation();
+                validLocation = this.myBoard.validLocation(location);
+                tryAgain = false;
+            }
+            catch (BoardException be){
+                errormsg("Not a valid option!");
+                tryAgain = true;
+            }
+        }
+        while(tryAgain);
+        int columnInt = validLocation[0];
+        int rowInt = validLocation[1];
         
         //Change that light!
         Board.Light light = this.myBoard.new Light(this.myBoard);

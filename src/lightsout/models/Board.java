@@ -8,12 +8,13 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 import lightsout.enums.LightSwitch;
+import lightsout.exceptions.BoardException;
 
 /**
  * @author Clinton
  */
 
-public class Board implements Serializable, lightsout.interfaces.Random {
+public class Board implements Serializable, lightsout.interfaces.Random, lightsout.interfaces.ErrorInfo {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
@@ -118,6 +119,11 @@ public class Board implements Serializable, lightsout.interfaces.Random {
     return randomNum;
     }
     
+    @Override
+    public void errormsg(String message) {
+        System.out.println(message);
+    }
+    
     public void display(){
         //Top Row
         String topRow = "   ";
@@ -158,6 +164,37 @@ public class Board implements Serializable, lightsout.interfaces.Random {
               boardLines += "====";
           }
         System.out.println(boardLines);
+    }
+    
+    @SuppressWarnings("empty-statement")
+    public int[] validLocation(String location) throws BoardException{
+                //Separate column and row
+        String[] split = location.split("");
+        String column = split[1].toUpperCase();
+        String row = split[2];
+        
+        //Is column A-E?
+        if(!column.equals("A") && !column.equals("B") && !column.equals("C") && !column.equals("D") && !column.equals("E"))
+        {
+            throw new BoardException("That is not a valid column");
+        }
+        //Column is valid
+        else{
+            if(!"1".equals(row) && !"2".equals(row) && !"3".equals(row) && !"4".equals(row) && !"5".equals(row))
+            {
+                throw new BoardException("That is not a valid row");
+            }
+            //Row is Valid
+            else
+            {
+                //Convert "A5" style to "[0,4]" style
+                int columnInt = this.convertColToInt(column);
+                int rowInt = this.convertRowToInt(row);
+                
+                //This was a valid option, so you can close this method
+                return new int[]{columnInt, rowInt};
+            }
+         }
     }
     
     public int checkBoard() {
