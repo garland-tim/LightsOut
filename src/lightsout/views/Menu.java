@@ -4,6 +4,7 @@
  */
 package lightsout.views;
 import lightsout.enums.Status;
+import lightsout.exceptions.MenuException;
 import lightsout.models.AskInput;
 /**
  *
@@ -36,5 +37,5 @@ public abstract class Menu implements lightsout.interfaces.DisplayInfo, lightsou
             return mainMenuInput;
     }
     
-    public abstract Status processMenuInput();
+    public abstract Status processMenuInput() throws MenuException;
 }

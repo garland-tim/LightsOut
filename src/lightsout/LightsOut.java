@@ -15,14 +15,23 @@ import java.util.Scanner;
  */
 public class LightsOut {
     public static void main(String[] args) {
-        System.out.println("Goal of the game: Turn off all the lights on the board!\nClick on a space, and that space as well as the spaces above, \nto the left, right, and bottom of it will be inversed.\nContinue to inverse the lights until all lights\nare turned off.\n\n");
+        try{
+            System.out.println("Goal of the game: Turn off all the lights on the board!\nClick on a space, and that space as well as the spaces above, \nto the left, right, and bottom of it will be inversed.\nContinue to inverse the lights until all lights\nare turned off.\n\n");
         
-        //Create a new player
-        Player myPlayer = new Player();
-        myPlayer.askName();
-        myPlayer.printName();
-        
-        MainMenuView myMainMenu = new MainMenuView();      
+            //Create a new player
+            Player myPlayer = new Player();
+            myPlayer.askName();
+            myPlayer.printName();
+            
+            MainMenuView myMainMenu = new MainMenuView();      
+        }
+        catch(Throwable ex){
+            System.out.println("There was an unexpected error in the game.\nProgram will now close.");
+            System.out.println(ex.getStackTrace());
+        }
+        finally{
+            
+        }
     }
 }
 

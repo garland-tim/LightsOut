@@ -47,12 +47,10 @@ public class AskInput implements Serializable {
         String location;
         
         //Loop 
-        while (true) {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the light you would like to change: ");
         location = input.next();
         return location;
-        }
     }
 
     @Override

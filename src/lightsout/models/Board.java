@@ -228,9 +228,14 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
         return 0;
     }   
     
-    public int convertRowToInt(String row){
+    public int convertRowToInt(String row) throws BoardException2{
         int rowInt;
+        try{
         rowInt = Integer.parseInt(row);
+        }
+        catch (NumberFormatException e){
+            throw new BoardException2("Error parsing the integer.\nPlease try again.");
+        }
         return rowInt-1;
     }   
     
