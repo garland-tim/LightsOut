@@ -170,6 +170,9 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
     public int[] validLocation(String location) throws BoardException{
                 //Separate column and row
         String[] split = location.split("");
+        if(split.length <= 1){
+            throw new BoardException("Must enter a row AND a column");
+        }
         String column = split[1].toUpperCase();
         String row = split[2];
         
