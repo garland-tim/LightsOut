@@ -7,7 +7,7 @@ package lightsout.models;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
-import lightsout.exceptions.BoardException;
+import lightsout.exceptions.BoardException2;
 
 /**
  *

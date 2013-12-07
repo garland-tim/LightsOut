@@ -8,14 +8,19 @@ package lightsout.exceptions;
  *
  * @author Clinton
  */
-public class boardException extends Exception {
-    public boardException(String message){
+public class BoardException2 extends Exception{
+    public BoardException2(){
+        
+    }
+    public BoardException2(String message){
         super(message);
     }
-    public boardException(String message, Throwable cause){
+    public BoardException2 (String message, Throwable cause)
+    {
         super(message, cause);
     }
-    public boardException(Throwable cause){
+    public BoardException2 (Throwable cause)
+    {
         super(cause);
     }
 }

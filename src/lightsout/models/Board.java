@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 import lightsout.enums.LightSwitch;
-import lightsout.exceptions.BoardException;
+import lightsout.exceptions.BoardException2;
 
 /**
  * @author Clinton
@@ -167,11 +167,11 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
     }
     
     @SuppressWarnings("empty-statement")
-    public int[] validLocation(String location) throws BoardException{
+    public int[] validLocation(String location) throws BoardException2{
                 //Separate column and row
         String[] split = location.split("");
         if(split.length <= 1){
-            throw new BoardException("Must enter a row AND a column");
+            throw new BoardException2("Must enter a row AND a column");
         }
         String column = split[1].toUpperCase();
         String row = split[2];
@@ -179,13 +179,13 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
         //Is column A-E?
         if(!column.equals("A") && !column.equals("B") && !column.equals("C") && !column.equals("D") && !column.equals("E"))
         {
-            throw new BoardException("That is not a valid column");
+            throw new BoardException2("That is not a valid column");
         }
         //Column is valid
         else{
             if(!"1".equals(row) && !"2".equals(row) && !"3".equals(row) && !"4".equals(row) && !"5".equals(row))
             {
-                throw new BoardException("That is not a valid row");
+                throw new BoardException2("That is not a valid row");
             }
             //Row is Valid
             else

@@ -12,7 +12,7 @@ import lightsout.models.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;
 import lightsout.enums.Status;
-import lightsout.exceptions.BoardException;
+import lightsout.exceptions.BoardException2;
 /**
  *
  * @author Clinton
@@ -131,7 +131,7 @@ public class MainMenuView extends Menu implements Serializable {
                 validLocation = this.myBoard.validLocation(location);
                 tryAgain = false;
             }
-            catch (BoardException be){
+            catch (BoardException2 be){
                 errormsg("Not a valid option!");
                 tryAgain = true;
             }
