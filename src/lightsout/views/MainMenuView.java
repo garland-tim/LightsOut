@@ -12,14 +12,15 @@ import lightsout.models.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;
 import lightsout.enums.Status;
-import lightsout.exceptions.BoardException;
+import lightsout.exceptions.BoardException2;
+import lightsout.exceptions.MenuException;
 /**
  *
  * @author Clinton
  */
 
 
-public class MainMenuView extends Menu implements Serializable {
+public class MainMenuView extends Menu implements Serializable, lightsout.interfaces.ErrorInfo {
     private final static String[][] menuItems = {
     {"S", "See array sort"},
     {"T", "Tim's Lesson 6"},
@@ -43,7 +44,13 @@ public class MainMenuView extends Menu implements Serializable {
         myMainControl.displayBoard();
         Status menuReturn;
         do {
-            menuReturn = this.processMenuInput();
+            try{
+                menuReturn = this.processMenuInput();
+            }
+            catch(MenuException me){
+                errormsg("Invalid menu input.\nPlease try again.");
+                menuReturn = Status.ERROR;
+            }
            }
         while (menuReturn == Status.IN_PROGRESS || menuReturn == Status.ERROR);
     }
@@ -57,7 +64,12 @@ public class MainMenuView extends Menu implements Serializable {
     }
     
     @Override
-    public Status processMenuInput(){
+    public void errormsg(String message){
+        System.out.println(message);
+    }
+    
+    @Override
+    public Status processMenuInput() throws MenuException{
         Status myReturn;
             String mainMenuInput = this.getInput();
             switch (mainMenuInput) {
@@ -103,7 +115,8 @@ public class MainMenuView extends Menu implements Serializable {
                     myMainControl.displayBoard();
                     break;
                 default:
-                    myReturn = this.myMainControl.errorMessage();
+                    myReturn = Status.ERROR;
+                    throw new MenuException();
             }
             return myReturn;
     }
@@ -131,8 +144,12 @@ public class MainMenuView extends Menu implements Serializable {
                 validLocation = this.myBoard.validLocation(location);
                 tryAgain = false;
             }
-            catch (BoardException be){
+            catch (BoardException2 be){
                 errormsg("Not a valid option!");
+                tryAgain = true;
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                errormsg("You must enter both a column AND a row");
                 tryAgain = true;
             }
         }
@@ -205,10 +222,16 @@ public class MainMenuView extends Menu implements Serializable {
         HelpMenuView myHelpMenu = new HelpMenuView();
         Status theReturn;
         do {
-            myHelpMenu.displayMenu();
-            theReturn = myHelpMenu.processMenuInput();
+            try{
+                myHelpMenu.displayMenu();
+                theReturn = myHelpMenu.processMenuInput();
+            }
+            catch(MenuException e){
+                errormsg("Not a valid menu option.\nPlease try again.");
+                theReturn = Status.ERROR;
+            }
            }
-        while (theReturn == Status.CONTINUE);
+        while (theReturn == Status.CONTINUE || theReturn == Status.ERROR);
         return Status.IN_PROGRESS;
     }
     

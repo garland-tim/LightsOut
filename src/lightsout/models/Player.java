@@ -4,6 +4,7 @@
  */
 package lightsout.models;
 
+import java.io.Serializable;
 import lightsout.models.AskInput;
 import java.util.Objects;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Tim
  */
-public class Player {
+public class Player implements Serializable {
     private String name;
 
     public Player() {

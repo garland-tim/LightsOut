@@ -7,7 +7,7 @@ package lightsout.models;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Scanner;
-import lightsout.exceptions.BoardException;
+import lightsout.exceptions.BoardException2;
 
 /**
  *
@@ -47,12 +47,10 @@ public class AskInput implements Serializable {
         String location;
         
         //Loop 
-        while (true) {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the light you would like to change: ");
         location = input.next();
         return location;
-        }
     }
 
     @Override

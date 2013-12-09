@@ -12,6 +12,7 @@ import lightsout.models.Board;
 import lightsout.Goodbye;
 import lightsout.SayHello2;
 import lightsout.enums.Status;
+import lightsout.exceptions.MenuException;
 /**
  *
  * @author Clinton
@@ -52,7 +53,7 @@ public class HelpMenuView extends Menu implements Serializable  {
     HelpMenuControl myMenuControl = new HelpMenuControl();
     AskInput myAsk = new AskInput();
     @Override
-    public Status processMenuInput(){
+    public Status processMenuInput() throws MenuException{
         Status myReturn;
         String helpInput = this.getInput();
             switch (helpInput) {
@@ -76,8 +77,8 @@ public class HelpMenuView extends Menu implements Serializable  {
                     myReturn = Status.RETURN;
                     break;
                 default:
-                    this.myMenuControl.errorMessage();
                     myReturn = Status.ERROR;
+                    throw new MenuException();
             }
             return myReturn;
     }
