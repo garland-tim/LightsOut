@@ -65,6 +65,11 @@ public class MainFrame extends javax.swing.JFrame {
         jbHelp.setText("Help");
 
         jbQuit.setText("Quit");
+        jbQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbQuitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpMenuItemsLayout = new javax.swing.GroupLayout(jpMenuItems);
         jpMenuItems.setLayout(jpMenuItemsLayout);
@@ -131,9 +136,16 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitActionPerformed
+        //LightsOut.MainFrame.setVisible(true);
+        this.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbQuitActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    //private static MainCommands = new MainMenuControl
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
