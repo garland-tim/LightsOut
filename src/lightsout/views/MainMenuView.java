@@ -136,7 +136,8 @@ public class MainMenuView extends Menu implements Serializable, lightsout.interf
         //Get input
         AskInput myAsk = new AskInput(this.myBoard);
         boolean tryAgain = false;
-        int[] validLocation = {-1,-1};
+        //Must set initial as 0,0 or it will have a cow and say "may not have been initialized"
+        int[] validLocation = {0,0};
         
         do{
             try{
