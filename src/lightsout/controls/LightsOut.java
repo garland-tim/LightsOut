@@ -8,6 +8,7 @@ import lightsout.models.Player;
 import lightsout.views.MainMenuView;
 import java.util.Random;
 import java.util.Scanner;
+import lightsout.frames.GetNamesFrame;
 import lightsout.frames.MainFrame;
 
 /**
@@ -20,15 +21,7 @@ public class LightsOut {
     public static void main(String[] args) {
         try{
             System.out.println("Goal of the game: Turn off all the lights on the board!\nClick on a space, and that space as well as the spaces above, \nto the left, right, and bottom of it will be inversed.\nContinue to inverse the lights until all lights\nare turned off.\n\n");
-            
-        
-            //Create a new player
-            Player myPlayer = new Player();
-            myPlayer.askName();
-            myPlayer.printName();
-            
-            MainMenuView myMainMenu = new MainMenuView();  
-            
+                        
                           /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
@@ -42,7 +35,9 @@ public class LightsOut {
             System.out.println(ex.getStackTrace());
         }
         finally{
-            LightsOut.mainFrame.dispose();
+            if (LightsOut.mainFrame != null) {
+                LightsOut.mainFrame.dispose();
+            }
         }
     }
 }

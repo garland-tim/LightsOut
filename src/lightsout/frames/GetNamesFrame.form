@@ -117,11 +117,17 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jpFormName">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jpFormNameKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jpFormButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OK"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jpFormButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

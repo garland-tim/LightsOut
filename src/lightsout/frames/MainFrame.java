@@ -9,7 +9,7 @@ package lightsout.frames;
  * @author Tim
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    public static GetNamesFrame namesFrame = null;
     /**
      * Creates new form MainFrame
      */
@@ -35,8 +35,14 @@ public class MainFrame extends javax.swing.JFrame {
         jbQuit = new javax.swing.JButton();
         jtWelcome = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lights Out Controller");
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 400, 300));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setResizable(false);
 
         jpBody.setBackground(new java.awt.Color(204, 204, 255));
         jpBody.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -63,6 +69,11 @@ public class MainFrame extends javax.swing.JFrame {
         jpMenuItems.setBackground(new java.awt.Color(204, 204, 255));
 
         jbNewGame.setText("New Game");
+        jbNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNewGameActionPerformed(evt);
+            }
+        });
 
         jbHelp.setText("Help");
 
@@ -103,6 +114,8 @@ public class MainFrame extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jTextArea1.setText("Goal of the game: Turn off all the lights on the board! Click on a space, and that space as well as the spaces above, to the left, right, and bottom of it will be inversed. Continue to inverse the lights until all lights are turned off.");
         jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextArea1.setEnabled(false);
         jtWelcome.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jpBodyLayout = new javax.swing.GroupLayout(jpBody);
@@ -111,13 +124,16 @@ public class MainFrame extends javax.swing.JFrame {
             jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpBodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jpBodyLayout.createSequentialGroup()
+                .addGroup(jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBodyLayout.createSequentialGroup()
                         .addComponent(jpMenuItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jtWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jpBodyLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpBodyLayout.setVerticalGroup(
             jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +147,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jpBodyLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jtWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,6 +176,15 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbQuitActionPerformed
+
+    private void jbNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNewGameActionPerformed
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    MainFrame.namesFrame = new GetNamesFrame();
+                    MainFrame.namesFrame.setVisible(true);
+                }
+            });
+    }//GEN-LAST:event_jbNewGameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,7 +221,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setName(String name){
+        this.jLabel1.setText(name);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton jbHelp;
     private javax.swing.JButton jbNewGame;

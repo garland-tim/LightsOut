@@ -4,16 +4,23 @@
  */
 package lightsout.frames;
 
+import lightsout.controls.LightsOut;
+import lightsout.models.Player;
+
 /**
  *
  * @author Tim
  */
 public class GetNamesFrame extends javax.swing.JFrame {
 
+    private Player myPlayer;
+    private LightsOut myGame;
     /**
      * Creates new form GetNamesFrame
      */
     public GetNamesFrame() {
+        this.myPlayer = new Player();
+        this.myGame = new LightsOut();
         initComponents();
     }
 
@@ -44,7 +51,18 @@ public class GetNamesFrame extends javax.swing.JFrame {
         jpFormLabel.setText("Please enter your name:");
         jpFormLabel.setToolTipText("");
 
+        jpFormName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jpFormNameKeyReleased(evt);
+            }
+        });
+
         jpFormButton.setText("OK");
+        jpFormButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jpFormButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpFormLayout = new javax.swing.GroupLayout(jpForm);
         jpForm.setLayout(jpFormLayout);
@@ -107,6 +125,22 @@ public class GetNamesFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jpFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpFormButtonActionPerformed
+        saveAndClose();
+    }//GEN-LAST:event_jpFormButtonActionPerformed
+
+    private void jpFormNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpFormNameKeyReleased
+        //If enter was pressed
+        if(evt.getKeyCode() == 10){
+            saveAndClose();
+        }
+    }//GEN-LAST:event_jpFormNameKeyReleased
+
+    private void saveAndClose(){
+        myPlayer.setName(this.jpFormName.getText());
+        LightsOut.mainFrame.setName(this.jpFormName.getText()+" is playing");
+        this.dispose();        
+    }
     /**
      * @param args the command line arguments
      */
