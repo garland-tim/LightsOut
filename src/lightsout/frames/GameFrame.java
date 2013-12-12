@@ -4,6 +4,8 @@
  */
 package lightsout.frames;
 
+import java.awt.Dimension;
+
 /**
  *
  * @author Tim
@@ -16,7 +18,11 @@ public class GameFrame extends javax.swing.JFrame {
     public GameFrame() {
         initComponents();
     }
-
+    
+    public void initializeFrame(){
+        jpBoard.getTableHeader().setVisible(false);
+        jpBoard.getTableHeader().setPreferredSize(new Dimension(0, 0));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,11 +86,10 @@ public class GameFrame extends javax.swing.JFrame {
         jpBoard.setAutoscrolls(false);
         jpBoard.setFocusable(false);
         jpBoard.setGridColor(new java.awt.Color(0, 0, 0));
-        jpBoard.setMaximumSize(new java.awt.Dimension(2147483647, 100));
+        jpBoard.setMaximumSize(new java.awt.Dimension(2147483647, 225));
+        jpBoard.setMinimumSize(new java.awt.Dimension(50, 225));
         jpBoard.setPreferredSize(new java.awt.Dimension(250, 250));
         jpBoard.setRowHeight(45);
-        jpBoard.getTableHeader().setResizingAllowed(false);
-        jpBoard.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jpBoard);
 
         javax.swing.GroupLayout jpGameBoardLayout = new javax.swing.GroupLayout(jpGameBoard);
@@ -92,9 +97,9 @@ public class GameFrame extends javax.swing.JFrame {
         jpGameBoardLayout.setHorizontalGroup(
             jpGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpGameBoardLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(38, 38, 38))
         );
         jpGameBoardLayout.setVerticalGroup(
             jpGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
