@@ -6,6 +6,7 @@ package lightsout.frames;
 
 import java.awt.Dimension;
 
+
 /**
  *
  * @author Tim
@@ -16,7 +17,8 @@ public class GameFrame extends javax.swing.JFrame {
      * Creates new form GameFrame
      */
     public GameFrame() {
-        initComponents();
+        this.initComponents();
+        this.initializeFrame();
     }
     
     public void initializeFrame(){
@@ -32,12 +34,18 @@ public class GameFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jpGame = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jpGameBoard = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jpBoard = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        headerA = new javax.swing.JLabel();
+        headerB = new javax.swing.JLabel();
+        headerC = new javax.swing.JLabel();
+        headerD = new javax.swing.JLabel();
+        headerE = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,15 +59,12 @@ public class GameFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
         );
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         jpBoard.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jpBoard.setModel(new javax.swing.table.DefaultTableModel(
@@ -89,35 +94,90 @@ public class GameFrame extends javax.swing.JFrame {
         jpBoard.setMaximumSize(new java.awt.Dimension(2147483647, 225));
         jpBoard.setMinimumSize(new java.awt.Dimension(50, 225));
         jpBoard.setPreferredSize(new java.awt.Dimension(250, 250));
-        jpBoard.setRowHeight(45);
-        jScrollPane1.setViewportView(jpBoard);
+        jpBoard.setRequestFocusEnabled(false);
+        jpBoard.setRowHeight(50);
 
-        javax.swing.GroupLayout jpGameBoardLayout = new javax.swing.GroupLayout(jpGameBoard);
-        jpGameBoard.setLayout(jpGameBoardLayout);
-        jpGameBoardLayout.setHorizontalGroup(
-            jpGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpGameBoardLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
-        jpGameBoardLayout.setVerticalGroup(
-            jpGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpGameBoardLayout.createSequentialGroup()
+        headerA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        headerA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerA.setText("A");
+        headerA.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        headerB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        headerB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerB.setText("B");
+        headerB.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        headerC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        headerC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerC.setText("C");
+        headerC.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        headerD.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        headerD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerD.setText("D");
+        headerD.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        headerE.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        headerE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerE.setText("E");
+        headerE.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                .addComponent(headerA, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(headerB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(headerC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(headerD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(headerE, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(headerA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(headerB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(headerC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(headerD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(headerE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 44, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpGameLayout = new javax.swing.GroupLayout(jpGame);
         jpGame.setLayout(jpGameLayout);
         jpGameLayout.setHorizontalGroup(
             jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpGameLayout.createSequentialGroup()
+            .addGroup(jpGameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpGameBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpGameLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jpBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jpGameLayout.setVerticalGroup(
@@ -126,7 +186,11 @@ public class GameFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpGameBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -179,11 +243,17 @@ public class GameFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel headerA;
+    private javax.swing.JLabel headerB;
+    private javax.swing.JLabel headerC;
+    private javax.swing.JLabel headerD;
+    private javax.swing.JLabel headerE;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jpBoard;
     private javax.swing.JPanel jpGame;
-    private javax.swing.JPanel jpGameBoard;
     // End of variables declaration//GEN-END:variables
 }
