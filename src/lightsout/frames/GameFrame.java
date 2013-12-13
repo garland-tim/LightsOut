@@ -5,6 +5,10 @@
 package lightsout.frames;
 
 import java.awt.Dimension;
+import javax.swing.JTable;
+import lightsout.controls.MainMenuControl;
+import lightsout.enums.LightSwitch;
+import lightsout.models.Board;
 
 
 /**
@@ -12,13 +16,16 @@ import java.awt.Dimension;
  * @author Tim
  */
 public class GameFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form GameFrame
-     */
+    private int boardHeight = 5;
+    private int boardWidth = 5;
+    Board myBoard = new Board();
+    JTable myTable = new JTable();
+    MainMenuControl mainControl = new MainMenuControl(myBoard);
+    
     public GameFrame() {
         this.initComponents();
         this.initializeFrame();
+        this.mainControl.newGame();
     }
     
     public void initializeFrame(){
@@ -104,6 +111,11 @@ public class GameFrame extends javax.swing.JFrame {
         jpBoard.setPreferredSize(new java.awt.Dimension(250, 250));
         jpBoard.setRequestFocusEnabled(false);
         jpBoard.setRowHeight(50);
+        jpBoard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpBoardMouseClicked(evt);
+            }
+        });
 
         headerA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         headerA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -263,6 +275,22 @@ public class GameFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jpBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpBoardMouseClicked
+        myTable = (JTable) evt.getComponent();
+        //this.jtMessageArea.setForeground(Color.black);
+        this.clickLight(myTable);
+        this.updateBoard();
+    }//GEN-LAST:event_jpBoardMouseClicked
+
+    public void updateBoard(){
+        this.myBoard.display(this.myTable);
+    }
+    
+    private void clickLight(JTable mytable){
+        int selectedRow = mytable.getSelectedRow();
+        int selectedColumn = mytable.getSelectedColumn();
+        this.mainControl.changeLight(selectedRow, selectedColumn);
+    }
     /**
      * @param args the command line arguments
      */

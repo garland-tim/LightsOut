@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
+import javax.swing.JTable;
 import lightsout.enums.LightSwitch;
 import lightsout.exceptions.BoardException2;
 
@@ -125,45 +126,37 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
     }
     
     public void display(){
-        //Top Row
-        String topRow = "   ";
-        for(int i=0; i < this.topLabels.length; i++)
-        {
-            topRow += "  "+ topLabels[i] +" ";
-        }
-        System.out.println(topRow);
-        
         for(int h=0; h < this.boardHeight; h++)
         {
-            String boardLines = "   =";
-            for(int w=0; w < this.boardWidth; w++)
-            {
-                boardLines += "====";
-            }
-            System.out.println(boardLines);
-            boardLines = " "+ this.sideLabels[h] +" |";
             for(int w=0; w < this.boardWidth; w++)
             {
                 //If light is on
                 if(this.boardArray[h][w] == LightSwitch.ON)
                 {
-                    boardLines += " " + this.light.getOnSymbol() + " |";
                 }
                 //If light is not on
                 else{
-                    boardLines += " " + this.light.getOffSymbol() + " |";
                 }
             }
-            System.out.println(boardLines); 
         }
-        
-        //Bottom =========
-        String boardLines = "   =";
-        for(int w=0; w < this.boardWidth; w++)
-          {
-              boardLines += "====";
-          }
-        System.out.println(boardLines);
+    }
+
+        public void display(JTable mytable){
+        for(int h=0; h < this.boardHeight; h++)
+        {
+            for(int w=0; w < this.boardWidth; w++)
+            {
+                //If light is on
+                if(this.boardArray[h][w] == LightSwitch.ON)
+                {
+                    mytable.getModel().setValueAt('x', w, h);
+                    System.out.println("x at "+w+","+h);
+                }
+                //If light is not on
+                else{
+                }
+            }
+        }
     }
     
     @SuppressWarnings("empty-statement")

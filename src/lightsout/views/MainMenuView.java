@@ -36,7 +36,8 @@ public class MainMenuView extends Menu implements Serializable, lightsout.interf
     {"H", "Help"}
 };
     
-    MainMenuControl myMainControl = new MainMenuControl();
+    Board board = new Board();
+    MainMenuControl myMainControl = new MainMenuControl(board);
     
     public MainMenuView(){
         super(MainMenuView.menuItems);

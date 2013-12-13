@@ -20,13 +20,13 @@ import lightsout.views.MainMenuView;
  */
     public class MainMenuControl implements Serializable, lightsout.interfaces.ErrorInfo {
     Board myBoard;
-    
     public Status quitGame(){
         System.out.println("Thanks for playing!");
         return Status.QUIT;
     }
     
-    public MainMenuControl(){
+    public MainMenuControl(Board board){
+        this.myBoard = board;
     }
     
     public Status changeLight(){
@@ -54,6 +54,48 @@ import lightsout.views.MainMenuView;
         while(tryAgain);
         int columnInt = validLocation[0];
         int rowInt = validLocation[1];
+        
+        //Change that light!
+        Board.Light light = this.myBoard.new Light(this.myBoard);
+        light.changeLight(columnInt, rowInt);
+                
+        //Get neighbors and change them
+        int lightAbove;
+        int lightBelow;
+        int lightRight;
+        int lightLeft;
+        if(columnInt > 0)
+          {
+              lightLeft = columnInt - 1;
+              light.changeLight(lightLeft, rowInt);
+          }
+        if(columnInt < 4)
+          {
+              lightRight = columnInt + 1;
+              light.changeLight(lightRight, rowInt);
+          }
+        if(rowInt > 0)
+          {
+              lightAbove = rowInt - 1;
+              light.changeLight(columnInt, lightAbove);
+          }
+        if(rowInt < 4)
+          {
+              lightBelow = rowInt + 1;
+              light.changeLight(columnInt, lightBelow);
+          }
+                               
+        
+        //Check to see if game is done
+        if (this.myBoard.checkBoard() == 0){
+            System.out.println("You just done won the game!  Press m for Main Menu!");
+            return Status.SOLVED;
+        }
+        return Status.IN_PROGRESS;
+    }
+     public Status changeLight(int clickedRow, int clickedCol){
+        int columnInt = clickedCol;
+        int rowInt = clickedRow;
         
         //Change that light!
         Board.Light light = this.myBoard.new Light(this.myBoard);
