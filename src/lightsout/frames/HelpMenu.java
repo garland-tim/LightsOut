@@ -102,17 +102,13 @@ public class HelpMenu extends javax.swing.JFrame {
         jpText.setLayout(jpTextLayout);
         jpTextLayout.setHorizontalGroup(
             jpTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpTextLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jtMessage)
-                .addContainerGap())
+            .addComponent(jtMessage, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jpTextLayout.setVerticalGroup(
             jpTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpTextLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtMessage)
-                .addContainerGap())
+                .addComponent(jtMessage))
         );
 
         javax.swing.GroupLayout jpHelpBodyLayout = new javax.swing.GroupLayout(jpHelpBody);
