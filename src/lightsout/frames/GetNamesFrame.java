@@ -12,7 +12,7 @@ import lightsout.models.Player;
  * @author Tim
  */
 public class GetNamesFrame extends javax.swing.JFrame {
-
+    public static GameFrame gameFrame = null;
     private Player myPlayer;
     private LightsOut myGame;
     /**
@@ -139,6 +139,8 @@ public class GetNamesFrame extends javax.swing.JFrame {
     private void saveAndClose(){
         myPlayer.setName(this.jpFormName.getText());
         LightsOut.mainFrame.setName(this.jpFormName.getText()+" is playing");
+        GetNamesFrame.gameFrame = new GameFrame();
+        GetNamesFrame.gameFrame.setVisible(true);
         this.dispose();        
     }
     /**
