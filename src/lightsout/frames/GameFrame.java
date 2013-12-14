@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import javax.swing.JTable;
 import lightsout.controls.MainMenuControl;
 import lightsout.enums.LightSwitch;
+import lightsout.enums.Status;
 import lightsout.models.Board;
 
 
@@ -18,14 +19,15 @@ import lightsout.models.Board;
 public class GameFrame extends javax.swing.JFrame {
     private int boardHeight = 5;
     private int boardWidth = 5;
-    Board myBoard = new Board();
-    JTable myTable = new JTable();
-    MainMenuControl mainControl = new MainMenuControl(myBoard);
+    Board myBoard = new Board(this.jpBoard);
+    MainMenuControl mainControl;
     
     public GameFrame() {
         this.initComponents();
         this.initializeFrame();
+        this.mainControl = new MainMenuControl(this.myBoard, this.jpBoard);
         this.mainControl.newGame();
+        this.jlLightsLeft.setText("Lights left: "+this.mainControl.getLightsLeft());
     }
     
     public void initializeFrame(){
@@ -61,6 +63,7 @@ public class GameFrame extends javax.swing.JFrame {
         jbMainMenu = new javax.swing.JButton();
         jbHelpMenu = new javax.swing.JButton();
         jbQuit = new javax.swing.JButton();
+        jlLightsLeft = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(508, 350));
@@ -85,6 +88,7 @@ public class GameFrame extends javax.swing.JFrame {
         );
 
         jpBoard.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        jpBoard.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jpBoard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -114,6 +118,8 @@ public class GameFrame extends javax.swing.JFrame {
         jpBoard.setPreferredSize(new java.awt.Dimension(250, 250));
         jpBoard.setRequestFocusEnabled(false);
         jpBoard.setRowHeight(50);
+        jpBoard.setRowSelectionAllowed(false);
+        jpBoard.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jpBoard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jpBoardMouseClicked(evt);
@@ -236,6 +242,8 @@ public class GameFrame extends javax.swing.JFrame {
 
         jbQuit.setText("Quit");
 
+        jlLightsLeft.setText("Lights left: ");
+
         javax.swing.GroupLayout jpGameLayout = new javax.swing.GroupLayout(jpGame);
         jpGame.setLayout(jpGameLayout);
         jpGameLayout.setHorizontalGroup(
@@ -246,11 +254,16 @@ public class GameFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jpGameLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jbMainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbHelpMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpGameLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jbMainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbHelpMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jpGameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jlLightsLeft)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jpRowHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -267,14 +280,16 @@ public class GameFrame extends javax.swing.JFrame {
                     .addComponent(jpRowHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpGameLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpGameLayout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addComponent(jbMainMenu)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbHelpMenu)
                                 .addGap(18, 18, 18)
-                                .addComponent(jbQuit))
+                                .addComponent(jbQuit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jlLightsLeft))
                             .addGroup(jpGameLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jpColumnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +302,7 @@ public class GameFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpGame, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+            .addComponent(jpGame, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,20 +313,22 @@ public class GameFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jpBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpBoardMouseClicked
-        myTable = (JTable) evt.getComponent();
-        //this.jtMessageArea.setForeground(Color.black);
+        JTable myTable = (JTable) evt.getComponent();
         this.clickLight(myTable);
-        this.updateBoard();
     }//GEN-LAST:event_jpBoardMouseClicked
-
-    public void updateBoard(){
-        this.myBoard.display(this.myTable);
-    }
     
     private void clickLight(JTable mytable){
         int selectedRow = mytable.getSelectedRow();
         int selectedColumn = mytable.getSelectedColumn();
-        this.mainControl.changeLight(selectedRow, selectedColumn);
+        this.mainControl.changeLight(selectedColumn, selectedRow);
+        //This is what happens when the game is over!
+        if(this.mainControl.getLightsLeft() == 0)
+        {
+            this.jlLightsLeft.setText("You just won!");
+        }
+        else{
+            this.jlLightsLeft.setText("Lights left: "+this.mainControl.getLightsLeft());
+        }
     }
     /**
      * @param args the command line arguments
@@ -364,6 +381,7 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JButton jbHelpMenu;
     private javax.swing.JButton jbMainMenu;
     private javax.swing.JButton jbQuit;
+    private javax.swing.JLabel jlLightsLeft;
     private javax.swing.JTable jpBoard;
     private javax.swing.JPanel jpColumnHeader;
     private javax.swing.JPanel jpGame;

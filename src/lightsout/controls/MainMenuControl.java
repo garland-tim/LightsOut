@@ -6,27 +6,30 @@ package lightsout.controls;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.swing.JTable;
+import lightsout.enums.LightSwitch;
 import lightsout.enums.Status;
 import lightsout.exceptions.BoardException2;
 import lightsout.exceptions.MenuException;
 import lightsout.models.AskInput;
 import lightsout.models.Board;
 import lightsout.views.HelpMenuView;
-import lightsout.views.MainMenuView;
 
 /**
  *
  * @author Clinton
  */
-    public class MainMenuControl implements Serializable, lightsout.interfaces.ErrorInfo {
+    public class MainMenuControl implements Serializable, lightsout.interfaces.Random, lightsout.interfaces.ErrorInfo {
     Board myBoard;
+    JTable myTable;
     public Status quitGame(){
         System.out.println("Thanks for playing!");
         return Status.QUIT;
     }
     
-    public MainMenuControl(Board board){
+    public MainMenuControl(Board board, JTable myTable){
         this.myBoard = board;
+        this.myTable = myTable;
     }
     
     public Status changeLight(){
@@ -93,7 +96,7 @@ import lightsout.views.MainMenuView;
         }
         return Status.IN_PROGRESS;
     }
-     public Status changeLight(int clickedRow, int clickedCol){
+     public Status changeLight(int clickedCol, int clickedRow){
         int columnInt = clickedCol;
         int rowInt = clickedRow;
         
@@ -127,7 +130,6 @@ import lightsout.views.MainMenuView;
               light.changeLight(columnInt, lightBelow);
           }
                                
-        
         //Check to see if game is done
         if (this.myBoard.checkBoard() == 0){
             System.out.println("You just done won the game!  Press m for Main Menu!");
@@ -137,7 +139,8 @@ import lightsout.views.MainMenuView;
     }
     
     public Status newGame(){
-        this.myBoard = new Board();
+        this.myBoard = new Board(myTable);
+        this.createBoard();
         return Status.IN_PROGRESS;
     }
     
@@ -153,6 +156,11 @@ import lightsout.views.MainMenuView;
         }   
     }
     
+    public int getLightsLeft(){
+        int lightsLeft = this.myBoard.checkBoard();
+        return lightsLeft;
+    }
+   
     public Status displayBoard(){
         this.myBoard.display();
         return Status.IN_PROGRESS;
@@ -178,5 +186,33 @@ import lightsout.views.MainMenuView;
     @Override
     public void errormsg(String message) {
         System.out.println(message);
+    }
+    
+    public void createBoard(){
+    int numOfLightsThisRow;
+    int randInArray;
+    int maxLightsInRow = 3;
+    for(int h=0; h < 5; h++)
+        {
+            //Max is set at 3 currently...
+            numOfLightsThisRow = randInt(0, maxLightsInRow);
+            for(int i=0; i < numOfLightsThisRow; i++)
+            {
+                randInArray = randInt(0, 4);
+                this.changeLight(randInArray, h);
+            }
+        }
+    }
+    
+    @Override
+    public int randInt(int min, int max){
+    // Usually this can be a field rather than a method variable
+    java.util.Random rand = new java.util.Random();
+
+    // nextInt is normally exclusive of the top value,
+    // so add 1 to make it inclusive
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+    return randomNum;
     }
 }

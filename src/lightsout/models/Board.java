@@ -15,12 +15,13 @@ import lightsout.exceptions.BoardException2;
  * @author Clinton
  */
 
-public class Board implements Serializable, lightsout.interfaces.Random, lightsout.interfaces.ErrorInfo {
+public class Board implements Serializable, lightsout.interfaces.ErrorInfo {
     private int boardHeight = 5;
     private int boardWidth = 5;
     private String[] topLabels = {"A","B","C","D","E"};
     private String[] sideLabels = {"1","2","3","4","5"};
     private int lightsOnStart = 7;
+    JTable myTable;
     private Light light = new Light(this);
     
     //Here is the default board - change later
@@ -32,8 +33,8 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
             { LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF, LightSwitch.OFF}
         };
     
-    public Board(){
-        this.createBoard();
+    public Board(JTable myTable){
+        this.myTable = myTable;
     }
 
     public int getBoardHeight() {
@@ -92,54 +93,40 @@ public class Board implements Serializable, lightsout.interfaces.Random, lightso
         this.boardArray = boardArray;
     }
     
-    public void createBoard(){
-        int numOfLightsThisRow;
-        int randInArray;
-        int maxLightsInRow = 3;
-        for(int h=0; h < this.boardArray.length; h++)
-        {
-            //Max is set at 3 currently...
-            numOfLightsThisRow = randInt(0, maxLightsInRow);
-            for(int i=0; i < numOfLightsThisRow; i++)
-            {
-                randInArray = randInt(0, this.boardArray[h].length-1);
-                this.boardArray[h][randInArray] = LightSwitch.ON;
-            }
-        }
-    }
-    
-    @Override
-    public int randInt(int min, int max){
-    // Usually this can be a field rather than a method variable
-    java.util.Random rand = new java.util.Random();
-
-    // nextInt is normally exclusive of the top value,
-    // so add 1 to make it inclusive
-    int randomNum = rand.nextInt((max - min) + 1) + min;
-
-    return randomNum;
-    }
-    
     @Override
     public void errormsg(String message) {
         System.out.println(message);
     }
     
-    public void display(){
-        for(int h=0; h < this.boardHeight; h++)
-        {
-            for(int w=0; w < this.boardWidth; w++)
-            {
-                //If light is on
-                if(this.boardArray[h][w] == LightSwitch.ON)
-                {
-                }
-                //If light is not on
-                else{
-                }
-            }
-        }
-    }
+public void display(){
+     //Top Row
+     String topRow = "   ";
+     for(int i=0; i < this.topLabels.length; i++)
+     {
+         topRow += "  "+ topLabels[i] +" ";
+     }
+     System.out.println(topRow);
+     
+     for(int h=0; h < this.boardHeight; h++)
+     {
+         String boardLines = "   =";
+         for(int w=0; w < this.boardWidth; w++)
+         {
+             boardLines += "====";
+             //If light is on
+             if(this.boardArray[h][w] == LightSwitch.ON)
+             {
+                boardLines += " " + this.light.getOnSymbol() + " ";
+             }
+             //If light is not on
+             else{
+                 boardLines += " " + this.light.getOffSymbol() + " ";
+             }
+         }
+         System.out.println(boardLines);
+         boardLines = " "+ this.sideLabels[h] +" |";
+     }
+ }
 
         public void display(JTable mytable){
         for(int h=0; h < this.boardHeight; h++)
@@ -269,9 +256,11 @@ public class Light implements Serializable {
         if(this.board.boardArray[rowInt][columnInt] == LightSwitch.ON)
         {
             this.board.boardArray[rowInt][columnInt] = LightSwitch.OFF;
+            this.board.myTable.getModel().setValueAt(this.offSymbol, rowInt, columnInt);
         }
         else{
             this.board.boardArray[rowInt][columnInt] = LightSwitch.ON;
+            this.board.myTable.getModel().setValueAt(" "+this.onSymbol, rowInt, columnInt);
         }
     }
 
