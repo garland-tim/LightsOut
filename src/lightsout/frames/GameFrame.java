@@ -241,6 +241,11 @@ public class GameFrame extends javax.swing.JFrame {
         jbHelpMenu.setText("Help Menu");
 
         jbQuit.setText("Quit");
+        jbQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbQuitActionPerformed(evt);
+            }
+        });
 
         jlLightsLeft.setText("Lights left: ");
 
@@ -316,6 +321,12 @@ public class GameFrame extends javax.swing.JFrame {
         JTable myTable = (JTable) evt.getComponent();
         this.clickLight(myTable);
     }//GEN-LAST:event_jpBoardMouseClicked
+
+    private void jbQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitActionPerformed
+        // TODO add your handling code here:
+        this.setVisable(true);
+        this.dispose();
+    }//GEN-LAST:event_jbQuitActionPerformed
     
     private void clickLight(JTable mytable){
         int selectedRow = mytable.getSelectedRow();
@@ -387,4 +398,8 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpGame;
     private javax.swing.JPanel jpRowHeader;
     // End of variables declaration//GEN-END:variables
+
+    private void setVisable(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
