@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JInternalFrame" name="jInternalFrame1">
+      <Properties>
+        <Property name="visible" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -154,26 +174,41 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="The Light"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbTheLightMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbTheBoard">
               <Properties>
                 <Property name="text" type="java.lang.String" value="The Board"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbTheBoardMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbTheRules">
               <Properties>
                 <Property name="text" type="java.lang.String" value="The Rules"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbTheRulesMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbThePlayer">
               <Properties>
                 <Property name="text" type="java.lang.String" value="The Player"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbThePlayerMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbQuitHelp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Quit Help"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbQuitHelpMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -196,6 +231,17 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="jtMessage">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="Click a button on the left for help with a specific topic"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
+                <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

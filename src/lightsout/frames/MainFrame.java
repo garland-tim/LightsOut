@@ -76,6 +76,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jbHelp.setText("Help");
+        jbHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbHelpMouseClicked(evt);
+            }
+        });
 
         jbQuit.setText("Quit");
         jbQuit.addActionListener(new java.awt.event.ActionListener() {
@@ -178,13 +183,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbQuitActionPerformed
 
     private void jbNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNewGameActionPerformed
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    MainFrame.namesFrame = new GetNamesFrame();
-                    MainFrame.namesFrame.setVisible(true);
-                }
-            });
+            MainFrame.namesFrame = new GetNamesFrame();
+            MainFrame.namesFrame.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jbNewGameActionPerformed
+
+    private void jbHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbHelpMouseClicked
+        HelpMenu helpMenu = new HelpMenu();
+        helpMenu.setVisible(true);
+    }//GEN-LAST:event_jbHelpMouseClicked
 
     /**
      * @param args the command line arguments
