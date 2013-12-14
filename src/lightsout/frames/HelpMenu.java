@@ -4,12 +4,14 @@
  */
 package lightsout.frames;
 
+import lightsout.controls.HelpMenuControl;
+
 /**
  *
  * @author Tim
  */
 public class HelpMenu extends javax.swing.JFrame {
-
+    HelpMenuControl helpMenuControl = new HelpMenuControl();
     /**
      * Creates new form HelpMenu
      */
@@ -26,6 +28,7 @@ public class HelpMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         jpHelpBody = new javax.swing.JPanel();
         jpHelpTitle = new javax.swing.JPanel();
         jlTitle = new javax.swing.JLabel();
@@ -37,6 +40,19 @@ public class HelpMenu extends javax.swing.JFrame {
         jbQuitHelp = new javax.swing.JButton();
         jpText = new javax.swing.JPanel();
         jtMessage = new javax.swing.JTextField();
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,14 +73,39 @@ public class HelpMenu extends javax.swing.JFrame {
         );
 
         jbTheLight.setText("The Light");
+        jbTheLight.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbTheLightMouseClicked(evt);
+            }
+        });
 
         jbTheBoard.setText("The Board");
+        jbTheBoard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbTheBoardMouseClicked(evt);
+            }
+        });
 
         jbTheRules.setText("The Rules");
+        jbTheRules.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbTheRulesMouseClicked(evt);
+            }
+        });
 
         jbThePlayer.setText("The Player");
+        jbThePlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbThePlayerMouseClicked(evt);
+            }
+        });
 
         jbQuitHelp.setText("Quit Help");
+        jbQuitHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbQuitHelpMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpButtonsLayout = new javax.swing.GroupLayout(jpButtons);
         jpButtons.setLayout(jpButtonsLayout);
@@ -97,6 +138,12 @@ public class HelpMenu extends javax.swing.JFrame {
                 .addComponent(jbQuitHelp)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jtMessage.setEditable(false);
+        jtMessage.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtMessage.setText("Click a button on the left for help with a specific topic");
+        jtMessage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtMessage.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jpTextLayout = new javax.swing.GroupLayout(jpText);
         jpText.setLayout(jpTextLayout);
@@ -159,6 +206,26 @@ public class HelpMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbQuitHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbQuitHelpMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jbQuitHelpMouseClicked
+
+    private void jbTheLightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTheLightMouseClicked
+        this.jtMessage.setText(this.helpMenuControl.displayLightHelp());
+    }//GEN-LAST:event_jbTheLightMouseClicked
+
+    private void jbTheBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTheBoardMouseClicked
+        this.jtMessage.setText(this.helpMenuControl.displayBoardHelp());
+    }//GEN-LAST:event_jbTheBoardMouseClicked
+
+    private void jbTheRulesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTheRulesMouseClicked
+        this.jtMessage.setText(this.helpMenuControl.displayRulesHelp());
+    }//GEN-LAST:event_jbTheRulesMouseClicked
+
+    private void jbThePlayerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbThePlayerMouseClicked
+        this.jtMessage.setText(this.helpMenuControl.displayPlayerHelp());
+    }//GEN-LAST:event_jbThePlayerMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -194,6 +261,7 @@ public class HelpMenu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JButton jbQuitHelp;
     private javax.swing.JButton jbTheBoard;
     private javax.swing.JButton jbTheLight;

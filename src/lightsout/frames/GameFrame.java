@@ -60,10 +60,10 @@ public class GameFrame extends javax.swing.JFrame {
         header3 = new javax.swing.JLabel();
         header4 = new javax.swing.JLabel();
         header5 = new javax.swing.JLabel();
-        jbMainMenu = new javax.swing.JButton();
         jbHelpMenu = new javax.swing.JButton();
         jbQuit = new javax.swing.JButton();
         jlLightsLeft = new javax.swing.JLabel();
+        jbNewGame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(508, 350));
@@ -236,18 +236,28 @@ public class GameFrame extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jbMainMenu.setText("Main Menu");
-
         jbHelpMenu.setText("Help Menu");
+        jbHelpMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbHelpMenuMouseClicked(evt);
+            }
+        });
 
         jbQuit.setText("Quit");
-        jbQuit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbQuitActionPerformed(evt);
+        jbQuit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbQuitMouseClicked(evt);
             }
         });
 
         jlLightsLeft.setText("Lights left: ");
+
+        jbNewGame.setText("New Game");
+        jbNewGame.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbNewGameMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpGameLayout = new javax.swing.GroupLayout(jpGame);
         jpGame.setLayout(jpGameLayout);
@@ -261,14 +271,14 @@ public class GameFrame extends javax.swing.JFrame {
                     .addGroup(jpGameLayout.createSequentialGroup()
                         .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jpGameLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jlLightsLeft))
+                            .addGroup(jpGameLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jbMainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jbHelpMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jbQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jpGameLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jlLightsLeft)))
+                                    .addComponent(jbQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbNewGame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jpRowHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -288,7 +298,7 @@ public class GameFrame extends javax.swing.JFrame {
                         .addGroup(jpGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jpGameLayout.createSequentialGroup()
                                 .addGap(62, 62, 62)
-                                .addComponent(jbMainMenu)
+                                .addComponent(jbNewGame)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbHelpMenu)
                                 .addGap(18, 18, 18)
@@ -322,22 +332,33 @@ public class GameFrame extends javax.swing.JFrame {
         this.clickLight(myTable);
     }//GEN-LAST:event_jpBoardMouseClicked
 
-    private void jbQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuitActionPerformed
-        // TODO add your handling code here:
-        this.setVisable(true);
+    private void jbHelpMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbHelpMenuMouseClicked
+        HelpMenu helpMenu = new HelpMenu();
+        helpMenu.setVisible(true);
+    }//GEN-LAST:event_jbHelpMenuMouseClicked
+
+    private void jbQuitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbQuitMouseClicked
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jbQuitActionPerformed
+    }//GEN-LAST:event_jbQuitMouseClicked
+
+    private void jbNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbNewGameMouseClicked
+        GameFrame gameFrame = new GameFrame();
+        gameFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbNewGameMouseClicked
     
     private void clickLight(JTable mytable){
-        int selectedRow = mytable.getSelectedRow();
-        int selectedColumn = mytable.getSelectedColumn();
-        this.mainControl.changeLight(selectedColumn, selectedRow);
         //This is what happens when the game is over!
         if(this.mainControl.getLightsLeft() == 0)
         {
             this.jlLightsLeft.setText("You just won!");
         }
         else{
+            int selectedRow = mytable.getSelectedRow();
+            int selectedColumn = mytable.getSelectedColumn();
+            this.mainControl.changeLight(selectedColumn, selectedRow);
             this.jlLightsLeft.setText("Lights left: "+this.mainControl.getLightsLeft());
         }
     }
@@ -390,7 +411,7 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbHelpMenu;
-    private javax.swing.JButton jbMainMenu;
+    private javax.swing.JButton jbNewGame;
     private javax.swing.JButton jbQuit;
     private javax.swing.JLabel jlLightsLeft;
     private javax.swing.JTable jpBoard;
