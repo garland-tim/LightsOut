@@ -25,7 +25,7 @@ public class GameFrame extends javax.swing.JFrame {
     public GameFrame() {
         this.initComponents();
         setLocationRelativeTo(null);
-        setSize(428, 356);
+        setSize(450, 400);
         this.initializeFrame();
         this.mainControl = new MainMenuControl(this.myBoard, this.jpBoard);
         this.mainControl.newGame();
