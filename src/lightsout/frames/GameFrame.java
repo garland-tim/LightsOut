@@ -353,15 +353,17 @@ public class GameFrame extends javax.swing.JFrame {
     
     private void clickLight(JTable mytable){
         //This is what happens when the game is over!
-        if(this.mainControl.getLightsLeft() == 0)
+        if(this.mainControl.getLightsLeft() > 0)
         {
-            this.jlLightsLeft.setText("You just won!");
-        }
-        else{
             int selectedRow = mytable.getSelectedRow();
             int selectedColumn = mytable.getSelectedColumn();
-            this.mainControl.changeLight(selectedColumn, selectedRow);
-            this.jlLightsLeft.setText("Lights left: "+this.mainControl.getLightsLeft());
+            Status gameStatus = this.mainControl.changeLight(selectedColumn, selectedRow);
+            if(gameStatus == Status.SOLVED){
+                this.jlLightsLeft.setText("You just won!");
+            }
+            else{
+                this.jlLightsLeft.setText("Lights left: "+this.mainControl.getLightsLeft());
+            }
         }
     }
     /**

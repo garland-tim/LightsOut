@@ -131,7 +131,6 @@ import lightsout.views.HelpMenuView;
                                
         //Check to see if game is done
         if (this.myBoard.checkBoard() == 0){
-            System.out.println("You just done won the game!  Press m for Main Menu!");
             return Status.SOLVED;
         }
         return Status.IN_PROGRESS;
