@@ -17,6 +17,7 @@ public class HelpMenu extends javax.swing.JFrame {
      */
     public HelpMenu() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

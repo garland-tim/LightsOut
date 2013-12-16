@@ -22,6 +22,7 @@ public class GetNamesFrame extends javax.swing.JFrame {
         this.myPlayer = new Player();
         this.myGame = new LightsOut();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
