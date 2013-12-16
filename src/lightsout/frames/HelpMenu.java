@@ -55,7 +55,8 @@ public class HelpMenu extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Help Menu");
 
         jlTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 24)); // NOI18N
         jlTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

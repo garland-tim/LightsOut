@@ -68,6 +68,7 @@ public class GameFrame extends javax.swing.JFrame {
         jbNewGame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Game Board");
         setPreferredSize(new java.awt.Dimension(508, 350));
 
         jpGame.setPreferredSize(new java.awt.Dimension(508, 350));
