@@ -42,6 +42,7 @@ public class GetNamesFrame extends javax.swing.JFrame {
         jpFormButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Name Prompt");
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
