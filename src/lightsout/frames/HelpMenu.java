@@ -140,8 +140,12 @@ public class HelpMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jtMessage.setEditable(false);
         jtMessage.setColumns(20);
+        jtMessage.setLineWrap(true);
         jtMessage.setRows(5);
+        jtMessage.setText("Select a button on the left to learn more.");
+        jtMessage.setWrapStyleWord(true);
 
         javax.swing.GroupLayout jpTextLayout = new javax.swing.GroupLayout(jpText);
         jpText.setLayout(jpTextLayout);
