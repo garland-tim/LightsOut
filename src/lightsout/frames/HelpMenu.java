@@ -40,7 +40,7 @@ public class HelpMenu extends javax.swing.JFrame {
         jbThePlayer = new javax.swing.JButton();
         jbQuitHelp = new javax.swing.JButton();
         jpText = new javax.swing.JPanel();
-        jtMessage = new javax.swing.JTextField();
+        jtMessage = new javax.swing.JTextArea();
 
         jInternalFrame1.setVisible(true);
 
@@ -140,23 +140,24 @@ public class HelpMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jtMessage.setEditable(false);
-        jtMessage.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jtMessage.setText("Click a button on the left for help with a specific topic");
-        jtMessage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jtMessage.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jtMessage.setColumns(20);
+        jtMessage.setRows(5);
 
         javax.swing.GroupLayout jpTextLayout = new javax.swing.GroupLayout(jpText);
         jpText.setLayout(jpTextLayout);
         jpTextLayout.setHorizontalGroup(
             jpTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtMessage, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jpTextLayout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         jpTextLayout.setVerticalGroup(
             jpTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpTextLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jtMessage))
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpHelpBodyLayout = new javax.swing.GroupLayout(jpHelpBody);
@@ -273,6 +274,6 @@ public class HelpMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jpHelpBody;
     private javax.swing.JPanel jpHelpTitle;
     private javax.swing.JPanel jpText;
-    private javax.swing.JTextField jtMessage;
+    private javax.swing.JTextArea jtMessage;
     // End of variables declaration//GEN-END:variables
 }
