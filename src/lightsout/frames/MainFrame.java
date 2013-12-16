@@ -122,6 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextArea1.setEnabled(false);
+        jTextArea1.setMargin(new java.awt.Insets(5, 7, 5, 7));
         jtWelcome.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jpBodyLayout = new javax.swing.GroupLayout(jpBody);
